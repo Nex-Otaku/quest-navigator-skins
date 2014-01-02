@@ -38,15 +38,41 @@ a, .qsp-skin-button, .qsp-action, .qsp-save-slot-enabled { -webkit-tap-highlight
  
 /* кастомное оформление */
 
-#page { position:absolute; left:0px; top:0px; width:100%; height:100%; /*overflow:hidden;*/ }
-#skin-left-column { position:absolute; left:0px; top:0px; width:70%; height:100%; /*overflow:hidden;*/ }
+#skin-page { position:fixed; left:0px; top:0px; width:100%; height:100%; }
+#skin-left-column { position:absolute; left:0px; top:0px; width:70%; height:100%; }
 #skin-right-column { position:absolute; right:0px; top:0px; width:30%; height:100%; overflow:hidden; }
+
+
+/* стили для поддержки строки ввода */
+#qsp-input-line { 
+	position:absolute;
+	bottom:0;
+	height:27px;
+	width:100%; 
+}
+#qsp-input-line input{ 
+	width:100%; 
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#qsp-wrapper-main { 
+	position: absolute; 
+}
+#skin-wrapper-main-outer {
+	position: absolute;
+	width:100%;
+	top:0;
+	bottom:0px;
+}
+body.input-visible #skin-wrapper-main-outer {
+	bottom:27px;
+}
+
 
 #qsp-back-image { position:absolute; left:0px; top:0px; width:100%; height:100%; overflow:hidden; }
 
-
 #qsp-wrapper-main { height:100%; width:100%; word-wrap: break-word; }
-
 #qsp-wrapper-objs { position:absolute; left:0px; top:0px; height:70%; width:100%; }
 #qsp-wrapper-vars { position:absolute; left:0px; bottom:0px; height:30%; width:100%; }
 
