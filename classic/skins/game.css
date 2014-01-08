@@ -104,7 +104,11 @@ color:#BB0000;
 
 /* Блоки с цветом по умолчанию */
 #qsp-dialog-msg-container,
-#qsp-button-msg-ok
+#qsp-button-msg-ok,
+#qsp-dialog-error-container,
+#qsp-button-error-ok,
+#qsp-dialog-input-container,
+#qsp-button-input-ok
 { 
 	border:solid black 1px; 
 	background-color:#E5E5E5;
@@ -224,10 +228,6 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 	position: absolute; left:50%; top:50%; width:240px; height:198px; margin-top:-99px; margin-left:-120px; 
 	background-size:240px 198px;
 	-webkit-background-size:240px 198px;
-	background-image:url("gfx/input_back-240x198.png"); 
-}
-body.retina #qsp-dialog-input-container { 
-	background-image:url("gfx/input_back-240x198@2x.png") !important;
 }
 #qsp-dialog-input-content, #qsp-dialog-input-text, #qsp-button-input-ok { position:static; clear:both; }
 #qsp-dialog-input-content { padding-left:20px; padding-right:20px; padding-top:15px;}
@@ -246,6 +246,9 @@ body.retina #qsp-dialog-input-container {
 	height:100%;
 	padding-top:5px;
 	padding-bottom:10px;
+}
+#qsp-button-input-ok {
+	padding: 2px 10px;
 }
 
 /* TWEAK FOR MAIN DESC */
