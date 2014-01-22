@@ -108,7 +108,8 @@ color:#BB0000;
 #qsp-dialog-error-container,
 #qsp-button-error-ok,
 #qsp-dialog-input-container,
-#qsp-button-input-ok
+#qsp-button-input-ok,
+#qsp-dialog-system-menu-container
 { 
 	border:solid black 1px; 
 	background-color:#E5E5E5;
@@ -154,15 +155,12 @@ color:#BB0000;
 #qsp-dialog-error-background, #qsp-button-error-ok { position: absolute; }
 
 /* SYSTEM MENU */
-#qsp-dialog-system-menu-background, #qsp-dialog-system-menu-container { position: absolute;  left:50%; top:50%; width:199px; height:199px; margin-top:-100px; margin-left:-100px; }
+#qsp-dialog-system-menu-background, #qsp-dialog-system-menu-container { position: fixed;  left:50%; top:50%; width:199px; height:199px; margin-top:-100px; margin-left:-100px; }
 
-#qsp-dialog-system-menu-container { padding:0px; }
-#qsp-dialog-system-menu-container .qsp-skin-button { width:50%; height:50%; float:left; font-size:12px; }
-#qsp-dialog-system-menu-container .qsp-skin-button a { text-decoration:none; color:#000; line-height:100%; }
-.qsp-dialog-system-menu-top-row { padding-top:15px; }
-.qsp-dialog-system-menu-bottom-row { padding-top:5px; }
-.qsp-dialog-system-menu-left-column { width:90%; float:right; }
-.qsp-dialog-system-menu-right-column { width:90%; float:left; }
+#qsp-dialog-system-menu-container { padding:0px; display: table; }
+#qsp-dialog-system-menu-container .qsp-skin-system-menu-row { display: table-row; }
+#qsp-dialog-system-menu-container .qsp-skin-system-menu-cell { display: table-cell; vertical-align:middle; font-size:17px; }
+#qsp-dialog-system-menu-container a { text-decoration:none; color:#000; }
 
 /* VIEW */
 #qsp-dialog-view-image-container {
