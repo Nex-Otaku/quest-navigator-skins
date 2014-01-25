@@ -92,9 +92,6 @@ body.input-visible #skin-wrapper-main-outer {
 
 #qsp-wrapper-main { height:100%; width:100%; word-wrap: break-word; }
 #qsp-wrapper-objs { position:absolute; left:0px; top:0px; height:100%; width:100%; }
-body.vars-visible #qsp-wrapper-objs { height:70%; }
-#qsp-wrapper-vars { position:absolute; left:0px; bottom:0px; height:100%; width:100%; }
-body.objs-visible #qsp-wrapper-vars { height:30%; }
 
 #qsp-wrapper-msg { position:absolute; overflow:hidden; }
 #qsp-system-menu-button { position:absolute; left:0px; top:0px; }
@@ -390,10 +387,6 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 	}
 	
 	#qsp-wrapper-objs { 
-		position:relative; 
-		height: auto !important;
-	}
-	#qsp-wrapper-vars { 
 		position:relative; 
 		height: auto !important;
 	}
