@@ -35,6 +35,9 @@ a, .qsp-skin-button, .qsp-action, .qsp-save-slot-enabled { -webkit-tap-highlight
 
 /* Кнопка на первой странице - в IE почему-то показывается рамка */
 .qsp-skin-button img{ border:none; }
+
+body { margin:0;	padding:0; }
+
  
 /* кастомное оформление */
 
@@ -278,20 +281,105 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 	padding: 2px 10px;
 }
 
-/* TWEAK FOR MAIN DESC */
-#qsp-main { padding-left:12px; padding-right:12px; text-align:justify; }
-/* TWEAK FOR ACTS */
+/* MAIN DESC AND VARS DESC */
+#qsp-main, #qsp-vars { padding-left:12px; padding-right:12px; padding-top:0.5em; text-align:justify; }
+/* ACTS */
 #qsp-acts { padding-left:12px; padding-right:12px;  padding-top:30px; }
-/* TWEAK FOR DEFAULT TEXT COLOR */
+/* DEFAULT TEXT COLOR */
 body { color:#FFF; background-color:#000; font-size:30px;}
 
 
 
 #skin-user1 { 
+	display:none;
+}
+#skin-user2 { 
 	position:fixed; 
 	right:0px; 
 	bottom:0px; 
 	width:40px; 
 	height:40px;
 	overflow:hidden;
+}
+
+#skin-inv-toggle {
+	display:inline-block;
+	width:40px;
+	height:40px;
+	overflow:hidden;
+	background-image:url("gfx/inv-arrow-down-40x40.png");
+}
+#skin-inv-toggle.open {
+	background-image:url("gfx/inv-arrow-up-40x40.png") !important;
+}
+
+/* Вёрстка для смартфонов в портретном режиме.
+ Также применяется к любому десктопному окну шириной менее 480 пикселов, 
+ чтобы удобней было тестировать мобильные шаблоны.
+ */
+@media screen and (max-width: 480px){
+	#skin-user1 { 
+		display:table-cell; 
+	}
+	#skin-user1-inner {
+		height:40px;
+	}
+	#skin-user1 a {
+		display:inline-block;
+		line-height:40px;
+		height:40px;
+	}
+	#skin-inv-caption { 
+		display:inline-block;
+		vertical-align:top;
+		padding-right:0.5em;
+	}
+	#skin-user2 { 
+		position:static !important;
+		display:table-cell; 
+	}
+	#qsp-user-system {
+		display:block;
+		height:40px;
+	}
+	#skin-top-menu-wrapper {
+		display:table;
+		width:100%;
+	}
+	#skin-top-menu-row {
+		display:table-row;
+	}
+	#qsp-inv {
+		display:none;
+	}
+	#skin-page { 
+		position:relative; 
+	}
+	#skin-left-column { 
+		position:relative;
+		width:100% !important;
+	}
+	#skin-right-column { 
+		position:relative;
+		width:100% !important;
+		overflow:auto;
+	}
+	#qsp-input-line { 
+		position:relative;
+	}
+	#qsp-wrapper-main { 
+		position: relative; 
+	}
+	#skin-wrapper-main-outer {
+		position: relative;
+	}
+	
+	#qsp-wrapper-objs { 
+		position:relative; 
+		height: auto !important;
+	}
+	#qsp-wrapper-vars { 
+		position:relative; 
+		height: auto !important;
+	}
 }

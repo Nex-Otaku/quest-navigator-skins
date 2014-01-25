@@ -25,6 +25,40 @@ $(document).ready(function(){
 <div id="qsp-back-image"></div>
 <!-- Описание основное и дополнительное, действия, инвентарь -->
 <div id="skin-page">
+
+<div id="skin-top-menu-wrapper">
+	<div id="skin-top-menu-row">
+		<div id="skin-user1">
+			<div id="skin-user1-inner">
+				<a class="qsp-skin-button" onclick="javascript:skinToggleInv();">
+					<div id="skin-inv-toggle"></div>
+					<div id="skin-inv-caption">Инвентарь</div>
+				</a>
+			</div>
+		</div>
+		<div id="skin-user2">
+			<a id="qsp-user-system" class="qsp-skin-button" onclick="javascript:qspShowSystemMenu();">
+				<img src="../standalone_content/skins/gfx/button_sys-40x40.png">
+			</a>
+		</div>
+	</div>
+</div>
+
+<div id="skin-right-column">
+	<div id="qsp-wrapper-objs">
+		<div id="qsp-scroller-objs">
+			<div id="qsp-inv">
+			</div>
+		</div>
+	</div>
+	<div id="qsp-wrapper-vars">
+		<div id="qsp-scroller-vars">
+			<div id="qsp-vars">
+			</div>
+		</div>
+	</div>
+</div>
+
 <div id="skin-left-column">
 	<div id="skin-wrapper-main-outer">
 		<div id="qsp-wrapper-main">
@@ -43,27 +77,8 @@ $(document).ready(function(){
 	</div>
 </div>
 
-<div id="skin-right-column">
-<div id="qsp-wrapper-objs">
-	<div id="qsp-scroller-objs">
-		<div id="qsp-inv">
-		</div>
-	</div>
-</div>
-<div id="qsp-wrapper-vars">
-	<div id="qsp-scroller-vars">
-		<div id="qsp-vars">
-		</div>
-	</div>
-</div>
-</div>
 </div>
 
-<div id="skin-user1">
-	<a id="skin-user-system" class="qsp-skin-button" onclick="javascript:qspShowSystemMenu();">
-		<img src="../standalone_content/skins/gfx/button_sys-40x40.png">
-	</a>
-</div>
     
     <!-- Диалоги -->
     <!-- Отрисовываются поверх всего, поэтому идут последними -->
