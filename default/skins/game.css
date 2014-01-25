@@ -287,20 +287,11 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 
 
 
-#qsp-user1 { 
+#skin-user1 { 
 	position:fixed; 
 	right:0px; 
 	bottom:0px; 
 	width:40px; 
 	height:40px;
 	overflow:hidden;
-}
-
-
-
-#mono{
-font-family: Lucida Console;
-}
-#ml{
-margin-left:100px;
 }
