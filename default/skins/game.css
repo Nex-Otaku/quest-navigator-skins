@@ -330,7 +330,7 @@ body { color:#FFF; background-color:#000; font-size:30px;}
  чтобы удобней было тестировать мобильные шаблоны.
  */
 @media screen and (max-width: 480px){
-	#skin-user1 { 
+	body.objs-visible #skin-user1 { 
 		display:table-cell; 
 	}
 	#skin-user1-inner {
@@ -349,6 +349,7 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 	#skin-user2 { 
 		position:static !important;
 		display:table-cell; 
+		text-align:right;
 	}
 	#qsp-user-system {
 		display:block;
