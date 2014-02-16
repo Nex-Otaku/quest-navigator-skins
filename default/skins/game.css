@@ -124,7 +124,8 @@ color:#BB0000;
 #qsp-dialog-input-container,
 #qsp-button-input-ok,
 #qsp-dialog-system-menu-container,
-#qsp-dialog-save-slots-wrapper1
+#qsp-dialog-save-slots-wrapper1,
+#qsp-dialog-user-menu
 { 
 	border:solid black 1px; 
 	background-color:#E5E5E5;
@@ -206,6 +207,7 @@ color:#BB0000;
 #qsp-dialog-system-menu-container a { text-decoration:none; color:#000; }
 
 /* VIEW */
+/* VIEW_ALWAYS_SHOW = 0, диалог */
 #qsp-dialog-view-image-container {
     position: fixed;
     top:10px;
@@ -222,6 +224,10 @@ color:#BB0000;
     left: 0;
     right: 0;
     bottom: 0;    
+}
+/* VIEW_ALWAYS_SHOW = 1, окно "встроено" в описание */
+#qsp-view {
+	text-align:center;
 }
 
 /* SAVE SLOTS */

@@ -110,7 +110,8 @@ color:#BB0000;
 #qsp-dialog-input-container,
 #qsp-button-input-ok,
 #qsp-dialog-system-menu-container,
-#qsp-dialog-save-slots-wrapper1
+#qsp-dialog-save-slots-wrapper1,
+#qsp-dialog-user-menu
 { 
 	border:solid black 1px; 
 	background-color:#E5E5E5;
