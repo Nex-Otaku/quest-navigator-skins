@@ -229,6 +229,9 @@ color:#BB0000;
 #qsp-view {
 	text-align:center;
 }
+#qsp-view img {
+    max-width:100%;
+}
 
 /* SAVE SLOTS */
 /* 
