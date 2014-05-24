@@ -1,9 +1,14 @@
 /*
- * Настройки скина QSP для тестирования
+ * Шаблон "Простой светлый"
  *
- * Скин растягиваемый!
- * 
+ * Вёрстка тянется, работает в двух режимах: десктопном и мобильном.
+ * Мобильный режим включается автоматически, при ширине окна менее 480 пикселов.
  */
+
+/* 
+Определяем, что высота HTML и BODY равняется высоте видимой области (viewport).
+Это избавляет нас от многих проблем при вёрстке. */ 
+html, body { height: 100%; margin: 0px; padding: 0px; }
 
 /* Запрещаем выделять текст и перетаскивать картинки */
 div,p,span {
@@ -56,17 +61,24 @@ body { margin:0;	padding:0; }
 /* кастомное оформление */
 
 #skin-page { position:fixed; left:0px; top:0px; width:100%; height:100%; }
-#skin-left-column { position:absolute; left:0px; top:0px; width:100%; height:100%; }
-body.vars-visible #skin-left-column, body.objs-visible #skin-left-column { width:70%; }
-#skin-right-column { position:absolute; right:0px; top:0px; width:30%; height:100%; overflow:hidden; }
+#skin-left-column { position:absolute; left:0px; width:100%; bottom:0; }
+body.objs-visible #skin-left-column { width:70%; }
+body.cover #skin-left-column,
+body.objs-visible #skin-left-column{
+	top: 34px;
+}
+body:not(.cover):not(.objs-visible) #skin-left-column {
+	top: 52px;
+}
+body:not(.objs-visible) #skin-right-column { display: none; }
+body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; width:30%; height:100%; overflow:hidden; }
 
 
 /* стили для поддержки строки ввода */
 #qsp-input-line { 
-	position:absolute;
-	bottom:0;
-	height:27px;
-	width:100%; 
+	position: fixed;
+	bottom: 0;
+	width: 100%; 
 }
 #qsp-input-line input{ 
 	width:100%; 
@@ -79,19 +91,11 @@ body.vars-visible #skin-left-column, body.objs-visible #skin-left-column { width
 }
 #skin-wrapper-main-outer {
 	position: absolute;
-	width:100%;
-	top:0;
-	bottom:0px;
-}
-body.input-visible #skin-wrapper-main-outer {
-	bottom:27px;
+	top: 0;
 }
 
-
-#qsp-back-image { position:absolute; left:0px; top:0px; width:100%; height:100%; overflow:hidden; }
 
 #qsp-wrapper-main { height:100%; width:100%; word-wrap: break-word; }
-#qsp-wrapper-objs { position:absolute; left:0px; top:0px; height:100%; width:100%; }
 
 #qsp-wrapper-msg { position:absolute; overflow:hidden; }
 #qsp-system-menu-button { position:absolute; left:0px; top:0px; }
@@ -107,29 +111,6 @@ body.input-visible #skin-wrapper-main-outer {
 /* Обложка */
 #qsp-cover-wrapper { text-align:center; width:320px; padding-top:11px; position:relative; left:50%; margin-left:-160px; }
 #qsp-cover-wrapper a img{ margin-top:3px; }
-
-
-
-.pressed.qsp-action {
-color:#BB0000; 
-}
-
-.pressed.qsp-save-slot-enabled div { color:#BB0000; }
-
-/* Блоки с цветом по умолчанию */
-#qsp-dialog-msg-container,
-#qsp-button-msg-ok,
-#qsp-dialog-error-container,
-#qsp-button-error-ok,
-#qsp-dialog-input-container,
-#qsp-button-input-ok,
-#qsp-dialog-system-menu-container,
-#qsp-dialog-save-slots-wrapper1,
-#qsp-dialog-user-menu
-{ 
-	border:solid black 1px; 
-	background-color:#E5E5E5;
-}
 
 /* MSG */
 #qsp-dialog-msg { }
@@ -203,8 +184,7 @@ color:#BB0000;
 
 #qsp-dialog-system-menu-container { padding:0px; display: table; }
 #qsp-dialog-system-menu-container .qsp-skin-system-menu-row { display: table-row; }
-#qsp-dialog-system-menu-container .qsp-skin-system-menu-cell { display: table-cell; vertical-align:middle; font-size:17px; }
-#qsp-dialog-system-menu-container a { text-decoration:none; color:#000; }
+#qsp-dialog-system-menu-container .qsp-skin-system-menu-cell { display: table-cell; vertical-align:middle; }
 
 /* VIEW */
 /* VIEW_ALWAYS_SHOW = 0, диалог */
@@ -267,10 +247,10 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 	padding:0px;
 }
 
-.qsp-save-slot-enabled, .qsp-save-slot-disabled { float:left; clear:both; margin-top:14px; font-size:17px; width:100%; padding:0px; }
+.qsp-save-slot-enabled, .qsp-save-slot-disabled { float:left; clear:both; margin-top:14px; width:100%; padding:0px; }
 .qsp-save-slot-enabled div, .qsp-save-slot-disabled div { padding-left:30px; padding-right:30px; padding-top:0px; padding-bottom:0px; margin:0px; }
 
-.qsp-save-slot-disabled { color:#555; cursor: default; }
+.qsp-save-slot-disabled { cursor: default; }
 
 /* INPUT DIALOG */
 /* Этот диалог растягивается, и зависит от размеров картинки бэкграунда, указанных в qsp-dialog-input-container */
@@ -302,26 +282,73 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 }
 
 /* MAIN DESC AND VARS DESC */
-#qsp-main, #qsp-vars { padding-left:12px; padding-right:12px; padding-top:0.5em; text-align:justify; }
+#qsp-main, #qsp-vars { text-align:justify; }
+
+a.disabled {
+	cursor: default;
+}
+
+/* ************************ */
+/* Шаблон "Простой светлый" */
+/* ************************ */
+
+/* MAIN DESC AND VARS DESC */
+#qsp-main, #qsp-vars { padding-right:12px; } /* отступ для скролла */
 /* ACTS */
 #qsp-acts { padding-left:12px; padding-right:12px;  padding-top:30px; }
-/* DEFAULT TEXT COLOR */
-body { color:#FFF; background-color:#000; font-size:30px;}
-
-
 
 #skin-user1 { 
 	display:none;
 }
+/* Кнопка системного меню */
+#qsp-user-system {
+	display: block;
+	height: 40px;
+	width: 40px;
+	background-image:url("gfx/button_sys-40x40.png");
+}
+body.retina #qsp-user-system {
+	background-image:url("gfx/button_sys-40x40@2x.png") !important;
+}
 #skin-user2 { 
 	position:fixed; 
-	right:0px; 
-	bottom:0px; 
+	right:34px; 
 	width:40px; 
 	height:40px;
 	overflow:hidden;
 	z-index:1;
 }
+/* 
+	Строка ввода выключена, инвентарь включен
+	либо обложка
+ */
+body.cover #skin-user2,
+body:not(.cover):not(.input-visible).objs-visible #skin-user2 {
+	bottom:34px; 
+}
+/* Cтрока ввода включена, инвентарь включен */
+body:not(.cover).input-visible.objs-visible #skin-user2 {
+	bottom:52px; 
+}
+/* Инвентарь выключен */
+body:not(.cover):not(.objs-visible) #qsp-user-system {
+	float:right;
+}
+body:not(.cover):not(.objs-visible) #skin-user2 { 
+	position:static !important;
+	display:table-cell;
+	text-align:right;
+	padding-right: 34px;
+}
+body:not(.cover):not(.objs-visible) #skin-top-menu-wrapper {
+	position: relative;
+	display:table;
+	width:100%;
+}
+body:not(.cover):not(.objs-visible) #skin-top-menu-row {
+	display:table-row;
+}
+
 
 #skin-inv-toggle {
 	display:inline-block;
@@ -334,6 +361,13 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 	background-image:url("gfx/inv-arrow-up-40x40.png") !important;
 }
 
+/* Вёрстка для десктопов и смартфонов в ландшафтном режиме. */
+@media screen and (min-width: 481px){
+	#skin-inv-wrapper {
+		display:block !important;
+	}
+	#skin-mobile-clearer { display:none; }
+}
 /* Вёрстка для смартфонов в портретном режиме.
  Также применяется к любому десктопному окну шириной менее 480 пикселов, 
  чтобы удобней было тестировать мобильные шаблоны.
@@ -344,6 +378,7 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 	}
 	#skin-user1-inner {
 		height:40px;
+		margin-left: 23px;
 	}
 	#skin-user1 a {
 		display:inline-block;
@@ -355,34 +390,56 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 		vertical-align:top;
 		padding-right:0.5em;
 	}
-	#skin-user2 { 
+	body:not(.cover) #skin-user2 { 
 		position:static !important;
 		display:table-cell; 
 		text-align:right;
+		padding: 0 23px 0 0 !important;
 	}
-	#qsp-user-system {
-		display:block;
-		height:40px;
+	body.cover #skin-user2 {
+		position:absolute !important;
+		bottom:23px; 
+		right:23px;
 	}
 	#skin-top-menu-wrapper {
+		position: relative;
 		display:table;
 		width:100%;
 	}
 	#skin-top-menu-row {
 		display:table-row;
 	}
-	#qsp-inv {
+	#skin-inv-wrapper {
 		display:none;
 	}
 	#skin-page { 
 		position:relative; 
+		min-height:100%;
+		height: auto !important;
+		width:100%;
 	}
 	#skin-left-column { 
 		position:relative;
 		width:100% !important;
+		top: auto !important;
+		padding-bottom: 23px !important;
+		
+		/*background-color:blue;*/
+		
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		border: 2px solid red;
+		
+	}
+	body.cover #skin-left-column {
+		padding-top: 23px !important;
+	}
+	body:not(.cover) #skin-left-column {
+		padding-top: 0 !important;
 	}
 	#skin-right-column { 
-		position:relative;
+		position:relative !important;
 		width:100% !important;
 		overflow:auto;
 	}
@@ -390,19 +447,393 @@ body { color:#FFF; background-color:#000; font-size:30px;}
 		position:relative;
 	}
 	#qsp-wrapper-main { 
-		position: relative; 
+		position: relative;
 	}
 	#skin-wrapper-main-outer {
 		position: relative;
 	}
-	
-	#qsp-wrapper-objs { 
-		position:relative; 
-		height: auto !important;
+	body:not(.cover) #skin-wrapper-main-outer {
+		margin-top: 6px;
 	}
 }
 
-a.disabled {
-	cursor: default;
-	color: #555 !important;
+
+/* Цвет фона */
+
+body 
+{
+	background-color: #FFFFFF; 
+}
+
+/* **************************** */
+/* Размер шрифта */
+
+/* Основной текст */
+body,
+#qsp-acts,
+#qsp-main,
+#qsp-vars,
+#qsp-inv,
+#skin-inv-caption,
+#qsp-dialog-user-menu,
+#qsp-dialog-input,
+#qsp-dialog-msg,
+#qsp-dialog-error
+{
+	font-size: 16px;
+}
+
+/* "Кнопки" основных диалогов */
+#qsp-dialog-save-slots,
+#qsp-dialog-system-menu
+{
+	font-size: 18px;
+}
+
+/* Заголовки */
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+
+/* Название игры на обложке */
+.game-title
+{
+	font-size: 30px;
+}
+
+/* Цвет шрифта */
+
+/* Основной текст */
+body 
+{ 
+	color: #464646; 
+}
+
+/* Ссылки */
+a
+{
+	color: #1874A4;
+}
+
+/* Неактивный слот сохранения */
+.qsp-save-slot-disabled,
+/* Неактивный пункт системного меню */
+a.disabled
+{ 
+	color: #A3A3A3; 
+/*	color: #555 !important;*/
+}
+
+/* Нажатое действие */
+.pressed.qsp-action,
+/* Нажатый слот сохранения */
+.pressed.qsp-save-slot-enabled div
+ {
+	color:#BB0000; 
+}
+
+/* Название игры на обложке */
+.game-title
+{
+	color: #F30D0D;
+}
+
+/* Блоки с цветом по умолчанию */
+#qsp-dialog-msg-container,
+#qsp-button-msg-ok,
+#qsp-dialog-error-container,
+#qsp-button-error-ok,
+#qsp-dialog-input-container,
+#qsp-button-input-ok,
+#qsp-dialog-system-menu-container,
+#qsp-dialog-save-slots-wrapper1,
+#qsp-dialog-user-menu
+{ 
+	background-color:#FFFFFF;
+}
+
+/* Подключаемые шрифты */
+/* Good Vibes */
+@font-face {
+    font-family: 'goodvibes';
+    src: url('fonts/GoodVibesCyr.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Название игры на обложке */
+.game-title
+{
+	font-family: 'goodvibes';
+}
+
+/* Основной шрифт */
+body
+{
+	font-family: 'Arial';
+}
+
+
+/* **************************** */
+/* Фон */
+
+/* Основной фон - затенённые края и углы */
+#skin-back1
+{ 
+	position: fixed; 
+	left: 0px; 
+	top: 0px; 
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden; 
+}
+body:not(.retina) #skin-back1
+{
+	border-style: solid;
+	border-width: 50px 50px 50px 50px; 
+	-moz-border-image: url(gfx/corners_fade-110x110.png) 50 50 50 50 repeat; 
+	-webkit-border-image: url(gfx/corners_fade-110x110.png) 50 50 50 50 repeat; 
+	-o-border-image: url(gfx/corners_fade-110x110.png) 50 50 50 50 repeat; 
+	border-image: url(gfx/corners_fade-110x110.png) 50 50 50 50 fill repeat;
+}
+body.retina #skin-back1
+{
+	-moz-border-image: url(gfx/corners_fade-110x110@2x.png) 50 50 50 50 repeat; 
+	-webkit-border-image: url(gfx/corners_fade-110x110@2x.png) 50 50 50 50 repeat; 
+	-o-border-image: url(gfx/corners_fade-110x110@2x.png) 50 50 50 50 repeat; 
+	border-image: url(gfx/corners_fade-110x110@2x.png) 50 50 50 50 fill repeat; 
+}
+
+/* Вторичный фон - двойные полоски по краям */
+#skin-back2
+{
+	position: fixed; 
+	left: 0px; 
+	top: 0px; 
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden; 
+	border-style: solid;
+}
+/* Обложка, либо "основной + инвентарь", полоски одинаковые */
+body.cover #skin-back2,
+body:not(.input-visible).objs-visible #skin-back2
+{
+	border-width: 30px 30px 30px 30px; 
+}
+body:not(.retina).cover #skin-back2,
+body:not(.retina):not(.input-visible).objs-visible #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_cover-110x110.png) 30 30 30 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_cover-110x110.png) 30 30 30 30 repeat; 
+	-o-border-image: url(gfx/stripes_cover-110x110.png) 30 30 30 30 repeat; 
+	border-image: url(gfx/stripes_cover-110x110.png) 30 30 30 30 fill repeat;
+}
+body.cover.retina #skin-back2,
+body:not(.input-visible).objs-visible.retina #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_cover-110x110@2x.png) 30 30 30 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_cover-110x110@2x.png) 30 30 30 30 repeat; 
+	-o-border-image: url(gfx/stripes_cover-110x110@2x.png) 30 30 30 30 repeat; 
+	border-image: url(gfx/stripes_cover-110x110@2x.png) 30 30 30 30 fill repeat; 
+}
+/* Основной вид */
+body:not(.cover):not(.input-visible):not(.objs-visible) #skin-back2
+{
+	border-width: 50px 30px 30px 30px; 
+}
+body:not(.retina):not(.cover):not(.input-visible):not(.objs-visible) #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_main-110x110.png) 50 30 30 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_main-110x110.png) 50 30 30 30 repeat; 
+	-o-border-image: url(gfx/stripes_main-110x110.png) 50 30 30 30 repeat; 
+	border-image: url(gfx/stripes_main-110x110.png) 50 30 30 30 fill repeat;
+}
+body:not(.cover):not(.input-visible):not(.objs-visible).retina #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_main-110x110@2x.png) 50 30 30 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_main-110x110@2x.png) 50 30 30 30 repeat; 
+	-o-border-image: url(gfx/stripes_main-110x110@2x.png) 50 30 30 30 repeat; 
+	border-image: url(gfx/stripes_main-110x110@2x.png) 50 30 30 30 fill repeat; 
+}
+/* Строка ввода */
+body:not(.cover).input-visible:not(.objs-visible) #skin-back2
+{
+	border-width: 50px 30px 50px 30px; 
+}
+body:not(.retina):not(.cover).input-visible:not(.objs-visible) #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_input_main-110x110.png) 50 30 50 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_input_main-110x110.png) 50 30 50 30 repeat; 
+	-o-border-image: url(gfx/stripes_input_main-110x110.png) 50 30 50 30 repeat; 
+	border-image: url(gfx/stripes_input_main-110x110.png) 50 30 50 30 fill repeat;
+}
+body:not(.cover).input-visible:not(.objs-visible).retina #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_input_main-110x110@2x.png) 50 30 50 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_input_main-110x110@2x.png) 50 30 50 30 repeat; 
+	-o-border-image: url(gfx/stripes_input_main-110x110@2x.png) 50 30 50 30 repeat; 
+	border-image: url(gfx/stripes_input_main-110x110@2x.png) 50 30 50 30 fill repeat; 
+}
+/* Строка ввода + инвентарь */
+body:not(.cover).input-visible.objs-visible #skin-back2
+{
+	border-width: 30px 30px 50px 30px; 
+}
+body:not(.retina):not(.cover).input-visible.objs-visible #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_input_objs-110x110.png) 30 30 50 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_input_objs-110x110.png) 30 30 50 30 repeat; 
+	-o-border-image: url(gfx/stripes_input_objs-110x110.png) 30 30 50 30 repeat; 
+	border-image: url(gfx/stripes_input_objs-110x110.png) 30 30 50 30 fill repeat;
+}
+body:not(.cover).input-visible.objs-visible.retina #skin-back2
+{
+	-moz-border-image: url(gfx/stripes_input_objs-110x110@2x.png) 30 30 50 30 repeat; 
+	-webkit-border-image: url(gfx/stripes_input_objs-110x110@2x.png) 30 30 50 30 repeat; 
+	-o-border-image: url(gfx/stripes_input_objs-110x110@2x.png) 30 30 50 30 repeat; 
+	border-image: url(gfx/stripes_input_objs-110x110@2x.png) 30 30 50 30 fill repeat; 
+}
+/* Мобильный вид */
+@media screen and (max-width: 480px){
+	/* В мобильном режиме не затеняем края и углы. */
+	#skin-back1 { display: none; }
+	/* Обложка */
+	#skin-back2 { 
+		position: absolute; 
+		left:0; 
+		right: 0; 
+		top: 0; 
+		bottom: 0; 
+	}
+	/* Обложка (выключен инвентарь) */
+	body.cover #skin-back2
+	{
+		border-width: 30px 30px 30px 30px !important; 
+	}
+	body.cover:not(.retina) #skin-back2
+	{
+		-moz-border-image: url(gfx/stripes_mobile_cover-110x110.png) 30 30 30 30 repeat !important; 
+		-webkit-border-image: url(gfx/stripes_mobile_cover-110x110.png) 30 30 30 30 repeat !important; 
+		-o-border-image: url(gfx/stripes_mobile_cover-110x110.png) 30 30 30 30 repeat !important; 
+		border-image: url(gfx/stripes_mobile_cover-110x110.png) 30 30 30 30 fill repeat !important; 
+	}
+	body.cover.retina #skin-back2
+	{
+		-moz-border-image: url(gfx/stripes_mobile_cover-110x110@2x.png) 30 30 30 30 repeat !important; 
+		-webkit-border-image: url(gfx/stripes_mobile_cover-110x110@2x.png) 30 30 30 30 repeat !important; 
+		-o-border-image: url(gfx/stripes_mobile_cover-110x110@2x.png) 30 30 30 30 repeat !important; 
+		border-image: url(gfx/stripes_mobile_cover-110x110@2x.png) 30 30 30 30 fill repeat !important; 
+	}
+	/* 	При включенном инвентаре отсутствует верхняя горизонтальная полоска, 
+		она отрисовывается в блоке инвентаря. */
+	body:not(.cover) #skin-back2
+	{
+		border-width: 0px 30px 30px 30px !important; 
+	}
+	body:not(.cover):not(.retina) #skin-back2
+	{
+		-moz-border-image: url(gfx/stripes_mobile-110x110.png) 0 30 30 30 repeat !important; 
+		-webkit-border-image: url(gfx/stripes_mobile-110x110.png) 0 30 30 30 repeat !important; 
+		-o-border-image: url(gfx/stripes_mobile-110x110.png) 0 30 30 30 repeat !important; 
+		border-image: url(gfx/stripes_mobile-110x110.png) 0 30 30 30 fill repeat !important; 
+	}
+	body:not(.cover).retina #skin-back2
+	{
+		-moz-border-image: url(gfx/stripes_mobile-110x110@2x.png) 0 30 30 30 repeat !important; 
+		-webkit-border-image: url(gfx/stripes_mobile-110x110@2x.png) 0 30 30 30 repeat !important; 
+		-o-border-image: url(gfx/stripes_mobile-110x110@2x.png) 0 30 30 30 repeat !important; 
+		border-image: url(gfx/stripes_mobile-110x110@2x.png) 0 30 30 30 fill repeat !important; 
+	}
+}
+
+
+
+/* **************************** */
+/* Разметка основных блоков */
+
+#skin-wrapper-main-outer {
+	left: 34px;
+}
+body.objs-visible #skin-wrapper-main-outer {
+	right: 6px;
+}
+body:not(.objs-visible) #skin-wrapper-main-outer {
+	right: 34px;
+}
+body.input-visible #skin-wrapper-main-outer {
+	bottom: 52px;
+}
+body:not(.input-visible) #skin-wrapper-main-outer {
+	bottom: 34px;
+}
+#skin-input-line-wrapper-outer
+{
+	display: table-row;
+}
+#skin-input-line-wrapper-inner
+{
+	display: table-cell;
+	height: 28px;
+	vertical-align: middle;
+}
+#qsp-input-line { 
+	display: table;
+	border:none;
+	padding-bottom: 6px;
+	padding-left: 34px;
+	padding-right: 34px;
+}
+/* Фон для инвентаря в основном режиме */
+#skin-right-column-background,
+#qsp-wrapper-objs
+{
+	position: absolute;
+	top: 34px;
+	right: 34px;
+	left: 0;
+}
+body.input-visible #qsp-wrapper-objs,
+body.input-visible #skin-right-column-background{
+	bottom: 52px;
+}
+body:not(.input-visible) #qsp-wrapper-objs,
+body:not(.input-visible) #skin-right-column-background{
+	bottom: 34px;
+}
+
+#skin-right-column-background
+{	
+	border-width: 4px 4px 4px 4px; 
+	-moz-border-image: url(gfx/inv_back-10x10.png) 4 4 4 4 repeat; 
+	-webkit-border-image: url(gfx/inv_back-10x10.png) 4 4 4 4 repeat; 
+	-o-border-image: url(gfx/inv_back-10x10.png) 4 4 4 4 repeat; 
+	border-image: url(gfx/inv_back-10x10.png) 4 4 4 4 fill repeat;
+}
+body.retina #skin-right-column-background
+{
+	-moz-border-image: url(gfx/inv_back-10x10@2x.png) 4 4 4 4 repeat !important; 
+	-webkit-border-image: url(gfx/inv_back-10x10@2x.png) 4 4 4 4 repeat !important; 
+	-o-border-image: url(gfx/inv_back-10x10@2x.png) 4 4 4 4 repeat !important; 
+	border-image: url(gfx/inv_back-10x10@2x.png) 4 4 4 4 fill repeat !important; 
+}
+/* Мобильный вид */
+@media screen and (max-width: 480px){
+	#skin-wrapper-main-outer {
+		left: 0px !important; 
+		right: 0px !important; 
+		top: 0px !important; 
+		bottom: 0px !important; 
+		margin-left: 23px !important; 
+		margin-right: 23px !important; 
+	}
+	#qsp-wrapper-objs { 
+		position:relative !important; 
+		height: auto !important;
+		top: initial !important;
+		right: initial !important;
+		bottom: initial !important;
+		left: initial !important;
+	}
+	#skin-right-column-background { display: none; }
 }

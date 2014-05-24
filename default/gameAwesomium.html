@@ -22,9 +22,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div id="qsp-back-image"></div>
+<div id="skin-back1"></div>
 <!-- Описание основное и дополнительное, действия, инвентарь -->
 <div id="skin-page">
+<div id="skin-back2"></div>
 
 <div id="skin-top-menu-wrapper">
 	<div id="skin-top-menu-row">
@@ -36,23 +37,32 @@ $(document).ready(function(){
 				</a>
 			</div>
 		</div>
+		<!--
+		<div id="skin-user2" style="background-color:green;">
+		-->
 		<div id="skin-user2">
-			<a id="qsp-user-system" class="qsp-skin-button" onclick="javascript:qspShowSystemMenu();">
-				<img src="../standalone_content/skins/gfx/button_sys-40x40.png">
-			</a>
+			<div id="qsp-user-system" class="qsp-skin-button" onclick="javascript:qspShowSystemMenu();" style="background-color:red;"></div>
 		</div>
 	</div>
 </div>
 
 <div id="skin-right-column">
+	<div id="skin-right-column-background"></div>
 	<div id="qsp-wrapper-objs">
 		<div id="qsp-scroller-objs">
-			<div id="qsp-inv">
+			<div id="skin-inv-wrapper">
+				<div id="skin-inv-top"></div>
+				<div id="qsp-inv">
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
+<!--
+<div id="skin-left-column" style="background-color:red;">
+	<div id="skin-wrapper-main-outer" style="background-color:green;">
+		<div id="qsp-wrapper-main" style="background-color:blue;">
+		-->
 <div id="skin-left-column">
 	<div id="skin-wrapper-main-outer">
 		<div id="qsp-wrapper-main">
@@ -71,10 +81,13 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div id="qsp-input-line">
-		<input type="text">
+		<div id="skin-input-line-wrapper-outer">
+			<div id="skin-input-line-wrapper-inner">
+				<input type="text">
+			</div>
+		</div>
 	</div>
 </div>
-
 </div>
 
     
@@ -95,7 +108,6 @@ $(document).ready(function(){
 					<div id="qsp-dialog-msg-bottom-container">
 	<div id="qsp-button-msg-ok" class="qsp-skin-button" onclick="javascript:qspCloseMsg();">
 		<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
-		<!--<img src="../standalone_content/skins/gfx/ok_button-84x47.png">-->
     </div>
 					</div>
 				</div>
@@ -117,7 +129,6 @@ $(document).ready(function(){
                         <div id="qsp-dialog-input-bottom-container">
 							<div id="qsp-button-input-ok" class="qsp-skin-button" onclick="javascript:qspCloseInput(true);">
 								<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
-								<!--<img src="../standalone_content/skins/gfx/ok_button-84x47.png" data-pressed="../standalone_content/skins/gfx/ok_button_pressed-84x47.png">-->
 							</div>
                         </div>
                     </div>
@@ -191,7 +202,6 @@ $(document).ready(function(){
 				<div id="qsp-dialog-error-bottom-wrapper">
 					<div id="qsp-button-error-ok" class="qsp-skin-button" onclick="javascript:qspCloseError();">
 						<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
-						<!--<img src="../standalone_content/skins/gfx/ok_button-84x47.png" data-pressed="../standalone_content/skins/gfx/ok_button_pressed-84x47.png">-->
 					</div>
 				</div>
 			</div>

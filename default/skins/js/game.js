@@ -1,14 +1,28 @@
 /* Функции скина для игры */
 
+function qspSkinOnDeviceSet() {
+	var mobile = qspIsAndroid || qspIsIos;
+	$(document.body).toggleClass('mobile', mobile);
+}
+
 function qspSkinOnUpdateSkin() {
 	// Когда строка ввода видна, элемент BODY получает класс "input-visible".
 	// Это позволяет нам определить правила CSS, зависящие от видимости строки ввода.
-	$(document.body).toggleClass('input-visible', $("#qsp-input-line").is(":visible"));
+	$(document.body).toggleClass('input-visible', qspGameSkin.showInput == 1);
 	// Аналогично для остальных окошек
-	var actsVisible = qspGameSkin.showActs == 1;
-	$(document.body).toggleClass('acts-visible', actsVisible);
-	$(document.body).toggleClass('objs-visible', $("#qsp-wrapper-objs").is(":visible"));
-	$(document.body).toggleClass('vars-visible', $("#qsp-wrapper-vars").is(":visible"));
+	$(document.body).toggleClass('acts-visible', qspGameSkin.showActs == 1);
+	$(document.body).toggleClass('objs-visible', qspGameSkin.showObjs == 1);
+	$(document.body).toggleClass('vars-visible', qspGameSkin.showVars == 1);
+	
+
+//****************************************************************************************	
+//****************************************************************************************	
+//****************************************************************************************	
+	skinSetMusicButton();
+
+//****************************************************************************************	
+//****************************************************************************************	
+//****************************************************************************************	
 }
 
 function qspSkinOnInitApi() {
@@ -34,11 +48,83 @@ function qspSkinOnInitApi() {
 		}
 		*/
 	}
+	
+	
+	/* для отладки */
+	$(document.body).click(function (ev) {
+		console.log($(ev.target).attr('id'));
+	});
 }
 
 
 /* Собственные функции скина */ 
 function skinToggleInv() {
-	$("#qsp-inv").slideToggle();
+	$("#skin-inv-wrapper").slideToggle();
 	$("#skin-inv-toggle").toggleClass('open');
+}
+
+
+/* Функции скина для игры */
+
+// Колбэки
+
+function qspSkinOnDeviceSet() {
+	// Вызывается, когда мы узнали, на каком устройстве запущена игра
+	var more_games_link = 'http://qsp.su';
+	if (qspIsAndroid) {
+		more_games_link = 'market://search?q=pub:Butterfly+Lantern';
+	} else if (qspIsIos) {
+		more_games_link = 'itms-apps://itunes.apple.com/ru/artist/butterfly-lantern-interactive/id508671395';
+	}
+	$("#more-games-button a").attr('href', more_games_link);
+}
+
+function qspSkinOnSetGroupedContent() {
+    skinRefreshBugfix();
+}
+
+// Свои функции
+
+var skinMusic = true;
+var skinStage = "";
+
+function skinToggleMusic() {
+	skinMusic = !skinMusic;
+	skinSetMusicButton();
+	QspLib.setMute(!skinMusic);
+}
+
+function skinSetMusicButton() {
+	skinToggleButton('#qsp-user-music img', '(button_music_)(on|off)(_pressed)?', '$1' + (skinMusic ? 'on' : 'off') + '$3');
+}
+
+function skinSetStage(cssClass) {
+	// Переключаем класс всего body, тем самым задаем разный стиль для разных игровых экранов
+	var t = $(document.body);
+	if ((skinStage !== '') && (t.hasClass(skinStage))) {
+		t.removeClass(skinStage);
+	}
+	skinStage = cssClass;
+	if ((cssClass !== '') && (!t.hasClass(cssClass))) {
+		t.addClass(cssClass);
+	}
+}
+
+function skinToggleButton(selector, pattern, replacement) {
+	var t = $(selector);
+	if (t.length == 0)
+		return;
+	var re = new RegExp(pattern, "g");
+	var btn1 = t.attr('src').replace(re, replacement);
+	var btn2 = t.attr('data-pressed').replace(re, replacement);
+	t.attr('src', btn1);
+	t.attr('data-pressed', btn2);
+}
+
+function skinRefreshBugfix()
+{
+	// Показываем и сразу скрываем невидимый блок размером с экран.
+	// Без этого в эмуляторе не обновляется описание.
+	$('#qsp-refresh-bugfix').show();
+	$('#qsp-refresh-bugfix').hide();
 }
