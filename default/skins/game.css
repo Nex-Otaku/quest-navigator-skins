@@ -300,23 +300,35 @@ a.disabled {
 #skin-user1 { 
 	display:none;
 }
-/* Кнопка системного меню */
-#qsp-user-system {
-	display: block;
+/* Кнопки в панели */
+#qsp-user-system,
+#qsp-user-music {
+	float:right;
 	height: 40px;
 	width: 40px;
+}
+/* Кнопка системного меню */
+body:not(.retina) #qsp-user-system {
 	background-image:url("gfx/button_sys-40x40.png");
 }
 body.retina #qsp-user-system {
-	background-image:url("gfx/button_sys-40x40@2x.png") !important;
+	background-image:url("gfx/button_sys-40x40@2x.png");
+}
+/* Кнопка выключения звука */
+body:not(.retina) #qsp-user-music {
+	background-image:url("gfx/button_sound_on-40x40.png");
+}
+body.retina #qsp-user-music {
+	background-image:url("gfx/button_sound_on-40x40@2x.png");
 }
 #skin-user2 { 
 	position:fixed; 
 	right:34px; 
-	width:40px; 
 	height:40px;
-	overflow:hidden;
 	z-index:1;
+}
+#skin-user2 .qsp-skin-button:not(:last-child) {
+	margin-left: 6px;
 }
 /* 
 	Строка ввода выключена, инвентарь включен
@@ -331,8 +343,10 @@ body:not(.cover).input-visible.objs-visible #skin-user2 {
 	bottom:52px; 
 }
 /* Инвентарь выключен */
-body:not(.cover):not(.objs-visible) #qsp-user-system {
+body:not(.cover):not(.objs-visible) #qsp-user-system,
+body:not(.cover):not(.objs-visible) #qsp-user-music {
 	float:right;
+	margin-left: 6px;
 }
 body:not(.cover):not(.objs-visible) #skin-user2 { 
 	position:static !important;
@@ -401,7 +415,7 @@ body:not(.cover):not(.objs-visible) #skin-top-menu-row {
 		bottom:23px; 
 		right:23px;
 	}
-	#skin-top-menu-wrapper {
+	body:not(.cover) #skin-top-menu-wrapper {
 		position: relative;
 		display:table;
 		width:100%;
@@ -429,7 +443,7 @@ body:not(.cover):not(.objs-visible) #skin-top-menu-row {
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
-		border: 2px solid red;
+		border: 2px solid green;
 		
 	}
 	body.cover #skin-left-column {
