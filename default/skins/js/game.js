@@ -1,3 +1,7 @@
+/* Переменные скина */
+var skinMusic = true;
+var skinStage = "";
+
 /* Функции скина для игры */
 
 function qspSkinOnDeviceSet() {
@@ -18,7 +22,7 @@ function qspSkinOnUpdateSkin() {
 //****************************************************************************************	
 //****************************************************************************************	
 //****************************************************************************************	
-	skinSetMusicButton();
+	skinSetMusicButton(skinMusic);
 
 //****************************************************************************************	
 //****************************************************************************************	
@@ -85,17 +89,18 @@ function qspSkinOnSetGroupedContent() {
 
 // Свои функции
 
-var skinMusic = true;
-var skinStage = "";
 
 function skinToggleMusic() {
 	skinMusic = !skinMusic;
-	skinSetMusicButton();
+	skinSetMusicButton(skinMusic);
 	QspLib.setMute(!skinMusic);
 }
 
-function skinSetMusicButton() {
+function skinSetMusicButton(skinMusic) {
+	$('#qsp-user-music').toggleClass('on', skinMusic);
+/*
 	skinToggleButton('#qsp-user-music img', '(button_music_)(on|off)(_pressed)?', '$1' + (skinMusic ? 'on' : 'off') + '$3');
+	*/
 }
 
 function skinSetStage(cssClass) {
@@ -110,6 +115,7 @@ function skinSetStage(cssClass) {
 	}
 }
 
+/*
 function skinToggleButton(selector, pattern, replacement) {
 	var t = $(selector);
 	if (t.length == 0)
@@ -120,6 +126,7 @@ function skinToggleButton(selector, pattern, replacement) {
 	t.attr('src', btn1);
 	t.attr('data-pressed', btn2);
 }
+*/
 
 function skinRefreshBugfix()
 {

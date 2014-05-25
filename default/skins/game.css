@@ -315,10 +315,16 @@ body.retina #qsp-user-system {
 	background-image:url("gfx/button_sys-40x40@2x.png");
 }
 /* Кнопка выключения звука */
-body:not(.retina) #qsp-user-music {
+body:not(.retina) #qsp-user-music:not(.on) {
+	background-image:url("gfx/button_sound_off-40x40.png");
+}
+body.retina #qsp-user-music:not(.on) {
+	background-image:url("gfx/button_sound_off-40x40@2x.png");
+}
+body:not(.retina) #qsp-user-music.on {
 	background-image:url("gfx/button_sound_on-40x40.png");
 }
-body.retina #qsp-user-music {
+body.retina #qsp-user-music.on {
 	background-image:url("gfx/button_sound_on-40x40@2x.png");
 }
 #skin-user2 { 
