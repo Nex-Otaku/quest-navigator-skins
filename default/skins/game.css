@@ -443,14 +443,6 @@ body:not(.cover):not(.objs-visible) #skin-top-menu-row {
 		width:100% !important;
 		top: auto !important;
 		padding-bottom: 23px !important;
-		
-		/*background-color:blue;*/
-		
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-		border: 2px solid green;
-		
 	}
 	body.cover #skin-left-column {
 		padding-top: 23px !important;
