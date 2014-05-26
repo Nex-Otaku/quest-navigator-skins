@@ -848,4 +848,31 @@ body.retina #skin-right-column-background
 		left: initial !important;
 	}
 	#skin-right-column-background { display: none; }
+	/* верхняя горизонтальная полоска в инвентаре */
+	#skin-inv-top {
+		display: relative;
+		margin-left: 23px;
+		margin-right: 23px;
+		margin-top: -2px;
+		height: 10px;
+	}
+	/* нижняя горизонтальная полоска в инвентаре */
+	#skin-inv-bottom {
+		margin-top: -2px;
+		height: 10px;
+	}
+	body:not(.cover) #skin-inv-bottom {
+		display: relative;
+	}
+	body.cover #skin-inv-bottom {
+		display: none;
+	}
+	body:not(.retina) #skin-inv-top,
+	body:not(.retina) #skin-inv-bottom {
+		background-image:url("gfx/stripes_hor-10x10.png");
+	}
+	body.retina #skin-inv-top,
+	body.retina #skin-inv-bottom {
+		background-image:url("gfx/stripes_hor-10x10@2x.png");
+	}
 }
