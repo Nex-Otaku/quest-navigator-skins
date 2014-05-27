@@ -875,4 +875,7 @@ body.retina #skin-right-column-background
 	body.retina #skin-inv-bottom {
 		background-image:url("gfx/stripes_hor-10x10@2x.png");
 	}
+	#skin-inv-wrapper {
+		overflow: hidden;
+	}
 }
