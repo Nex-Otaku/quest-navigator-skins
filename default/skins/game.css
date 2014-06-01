@@ -293,9 +293,14 @@ a.disabled {
 /* ************************ */
 
 /* MAIN DESC AND VARS DESC */
-#qsp-main, #qsp-vars { padding-right:12px; } /* отступ для скролла */
+#qsp-main, #qsp-vars { 
+	/*padding-right:12px;*/ /* отступ для скролла */
+	padding: 10px 13px 0 13px;
+} 
 /* ACTS */
-#qsp-acts { padding-left:12px; padding-right:12px;  padding-top:30px; }
+#qsp-acts { 
+	padding: 30px 13px 0 13px;
+}
 
 #skin-user1 { 
 	display:none;
@@ -878,4 +883,15 @@ body.retina #skin-right-column-background
 	#skin-inv-wrapper {
 		overflow: hidden;
 	}
+}
+
+/* Разметка действий */
+.skin-action {
+	padding: 10px 20px 10px 20px;
+}
+.skin-action-pointer {
+	margin-right: 12px;
+}
+.skin-action-text {
+	text-decoration: underline;
 }
