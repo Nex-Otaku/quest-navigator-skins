@@ -211,6 +211,7 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 }
 #qsp-view img {
     max-width:100%;
+	margin-bottom: 10px;
 }
 
 /* SAVE SLOTS */
@@ -291,15 +292,35 @@ a.disabled {
 /* ************************ */
 /* Шаблон "Простой светлый" */
 /* ************************ */
-
-/* MAIN DESC AND VARS DESC */
-#qsp-main, #qsp-vars { 
-	/*padding-right:12px;*/ /* отступ для скролла */
-	padding: 10px 13px 0 13px;
-} 
-/* ACTS */
-#qsp-acts { 
-	padding: 30px 13px 0 13px;
+/* Десктопный режим */
+@media screen and (min-width: 481px){
+	/* VIEW (встроенное в текст)*/
+	#qsp-view {
+		padding: 0 13px 0 13px;
+	}
+	/* MAIN DESC AND VARS DESC */
+	#qsp-main, #qsp-vars { 
+		padding: 10px 13px 0 13px;
+	}
+	/* ACTS */
+	#qsp-acts { 
+		padding: 30px 13px 0 13px;
+	}
+}
+/* Мобильный режим */
+@media screen and (max-width: 480px){
+	/* VIEW (встроенное в текст)*/
+	#qsp-view {
+		padding: 0;
+	}
+	/* MAIN DESC AND VARS DESC */
+	#qsp-main, #qsp-vars { 
+		padding: 0;
+	}
+	/* ACTS */
+	#qsp-acts { 
+		padding: 10px 0 0 0;
+	}
 }
 
 #skin-user1 { 
@@ -887,10 +908,19 @@ body.retina #skin-right-column-background
 
 /* Разметка действий */
 .skin-action {
-	padding: 10px 20px 10px 20px;
+	padding: 10px 0 10px 0;
 }
-.skin-action-pointer {
-	margin-right: 12px;
+/* Десктопный режим */
+@media screen and (min-width: 481px){
+	.skin-action-pointer {
+		margin-right: 12px;
+	}
+}
+/* Мобильный режим */
+@media screen and (max-width: 480px){
+	.skin-action-pointer {
+		margin-right: 6px;
+	}
 }
 .skin-action-text {
 	text-decoration: underline;
