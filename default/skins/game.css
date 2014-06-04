@@ -912,16 +912,23 @@ body.retina #skin-right-column-background
 }
 /* Десктопный режим */
 @media screen and (min-width: 481px){
-	.skin-action-pointer {
+	.skin-action-pointer,
+	.skin-action img	
+	{
 		margin-right: 12px;
 	}
 }
 /* Мобильный режим */
 @media screen and (max-width: 480px){
-	.skin-action-pointer {
+	.skin-action-pointer,
+	.skin-action img	
+	{
 		margin-right: 6px;
 	}
 }
 .skin-action-text {
 	text-decoration: underline;
+}
+.skin-object {
+	padding-bottom:5px;
 }

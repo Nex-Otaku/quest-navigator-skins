@@ -58,6 +58,18 @@ function qspSkinOnInitApi() {
 	$(document.body).click(function (ev) {
 		console.log($(ev.target).attr('id'));
 	});
+	
+	/* Настройки форматов */
+	qspObjsListItemFormat = "<div class='skin-object'><center><img src='%IMAGE%'> %TEXT%</center></div>";
+	qspObjsListSelItemFormat = qspObjsListItemFormat;
+	qspMenuListItemFormat = "<img src='%IMAGE%'> %TEXT%";
+}
+// Создание разметки для действия. 
+function qspSkinGetActionHtml(action, index) {
+	qspActsListItemFormat = "<div class='skin-action'><span class='skin-action-pointer'>&gt;</span>" +
+							((action.image.length > 0) ? "<img src='%IMAGE%'>" : "") +
+							"<span class='skin-action-text'>%TEXT%</span></div>";
+	return qspGetDefaultActionHtml(action, index);
 }
 
 
