@@ -964,7 +964,7 @@ body.retina #skin-right-column-background
 }
 .skin-object-image {
 	line-height: 1px; /* убираем лишнее пустое место над и под картинкой */
-	margin-right: 6px;
+	margin: 3px 6px 3px 0;
 }
 /* Ссылка на предмет "чёрного" цвета (как основной текст), 
 выбранный предмет подчёркивается. */
