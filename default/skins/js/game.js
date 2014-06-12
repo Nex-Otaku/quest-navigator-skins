@@ -60,8 +60,6 @@ function qspSkinOnInitApi() {
 	});
 	
 	/* Настройки форматов */
-	qspObjsListItemFormat = "<div class='skin-object'><center><img src='%IMAGE%'> %TEXT%</center></div>";
-	qspObjsListSelItemFormat = qspObjsListItemFormat;
 	qspMenuListItemFormat = "<img src='%IMAGE%'> %TEXT%";
 }
 // Создание разметки для действия. 
@@ -70,6 +68,14 @@ function qspSkinGetActionHtml(action, index) {
 							((action.image.length > 0) ? "<img src='%IMAGE%'>" : "") +
 							"<span class='skin-action-text'>%TEXT%</span></div>";
 	return qspGetDefaultActionHtml(action, index);
+}
+// Создание разметки для предмета. 
+function qspSkinGetObjectHtml(object, index) {
+	qspObjsListItemFormat = "<center><div class='skin-object'><div class='skin-object-helper'></div>" + 
+							((object.image.length > 0) ?"<div class='skin-object-image'><img src='%IMAGE%'></div>" : "") + 
+							"<div class='skin-object-text'>%TEXT%</div></div></center>";
+	qspObjsListSelItemFormat = qspObjsListItemFormat;
+	return qspGetDefaultObjectHtml(object, index);
 }
 
 

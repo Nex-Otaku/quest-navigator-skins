@@ -831,13 +831,17 @@ body:not(.input-visible) #skin-wrapper-main-outer {
 	right: 34px;
 	left: 0;
 }
-body.input-visible #qsp-wrapper-objs,
 body.input-visible #skin-right-column-background{
 	bottom: 52px;
 }
-body:not(.input-visible) #qsp-wrapper-objs,
 body:not(.input-visible) #skin-right-column-background{
 	bottom: 34px;
+}
+body.input-visible #qsp-wrapper-objs {
+	bottom: 92px;
+}
+body:not(.input-visible) #qsp-wrapper-objs {
+	bottom: 74px;
 }
 
 #skin-right-column-background
@@ -929,6 +933,36 @@ body.retina #skin-right-column-background
 .skin-action-text {
 	text-decoration: underline;
 }
+
+/* Для выравнивания по вертикали картинки и текста предмета,
+используем хитрый трюк CSS.
+1. Выставляем фиксированную высоту для контейнера ".skin-object".
+2. Добавляем пустой DIV ".skin-object-helper" со свойствами 
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+Он займёт всю высоту контейнера, как бы задаст высоту строки.
+3. Добавляем оставшиеся элементы со свойствами
+	display: inline-block;
+	vertical-align: middle;
+Они будут выравниваться посередине по вертикали, 
+засчёт того, что хэлпер уже задал ориентир высоты.
+*/
 .skin-object {
-	padding-bottom:5px;
+	height: 40px;
+}
+.skin-object-helper {
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	vertical-align: middle;
+}
+.skin-object-image,
+.skin-object-text {
+	display: inline-block;
+	vertical-align: middle;
+}
+.skin-object-image {
+	line-height: 1px; /* убираем лишнее пустое место над и под картинкой */
+	margin-right: 6px;
 }
