@@ -74,7 +74,9 @@ function qspSkinGetObjectHtml(object, index) {
 	qspObjsListItemFormat = "<center><div class='skin-object'><div class='skin-object-helper'></div>" + 
 							((object.image.length > 0) ?"<div class='skin-object-image'><img src='%IMAGE%'></div>" : "") + 
 							"<div class='skin-object-text'>%TEXT%</div></div></center>";
-	qspObjsListSelItemFormat = qspObjsListItemFormat;
+	qspObjsListSelItemFormat = "<center><div class='skin-object selected'><div class='skin-object-helper'></div>" + 
+							((object.image.length > 0) ?"<div class='skin-object-image'><img src='%IMAGE%'></div>" : "") + 
+							"<div class='skin-object-text'>%TEXT%</div></div></center>";
 	return qspGetDefaultObjectHtml(object, index);
 }
 
