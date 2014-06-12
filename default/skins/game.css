@@ -949,7 +949,7 @@ body.retina #skin-right-column-background
 засчёт того, что хэлпер уже задал ориентир высоты.
 */
 .skin-object {
-	height: 30px;
+	min-height: 30px;
 }
 .skin-object-helper {
 	display: inline-block;
@@ -969,8 +969,12 @@ body.retina #skin-right-column-background
 /* Ссылка на предмет "чёрного" цвета (как основной текст), 
 выбранный предмет подчёркивается. */
 .qsp-object a {
-	color: #464646;
+	color: inherit;
 }
 .qsp-object .selected .skin-object-text{
 	text-decoration: underline;
+}
+/* Цвет текста в заголовке инвентаря */
+#skin-user1-inner a {
+	color: #858585;
 }
