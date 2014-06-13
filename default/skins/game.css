@@ -296,15 +296,15 @@ a.disabled {
 @media screen and (min-width: 481px){
 	/* VIEW (встроенное в текст)*/
 	#qsp-view {
-		padding: 0 13px 0 13px;
+		padding: 0 19px 0 13px;
 	}
 	/* MAIN DESC AND VARS DESC */
 	#qsp-main, #qsp-vars { 
-		padding: 10px 13px 0 13px;
+		padding: 10px 19px 0 13px;
 	}
 	/* ACTS */
 	#qsp-acts { 
-		padding: 30px 13px 0 13px;
+		padding: 30px 19px 0 13px;
 	}
 }
 /* Мобильный режим */
@@ -794,10 +794,10 @@ body:not(.cover).input-visible.objs-visible.retina #skin-back2
 	left: 34px;
 }
 body.objs-visible #skin-wrapper-main-outer {
-	right: 6px;
+	right: 0;
 }
 body:not(.objs-visible) #skin-wrapper-main-outer {
-	right: 34px;
+	right: 28px;
 }
 body.input-visible #skin-wrapper-main-outer {
 	bottom: 52px;
