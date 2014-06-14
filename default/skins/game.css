@@ -978,3 +978,30 @@ body.retina #skin-right-column-background
 #skin-user1-inner a {
 	color: #858585;
 }
+
+/* Контекстное меню */
+#skin-user-menu-background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden; 
+	z-index: -1;
+}
+body:not(.retina) #skin-user-menu-background
+{
+	border-style: solid;
+	border-width: 20px 20px 20px 20px; 
+	-moz-border-image: url(gfx/context_menu_back-110x110.png) 20 20 20 20 repeat; 
+	-webkit-border-image: url(gfx/context_menu_back-110x110.png) 20 20 20 20 repeat; 
+	-o-border-image: url(gfx/context_menu_back-110x110.png) 20 20 20 20 repeat; 
+	border-image: url(gfx/context_menu_back-110x110.png) 20 20 20 20 fill repeat;
+}
+body.retina #skin-user-menu-background
+{
+	-moz-border-image: url(gfx/context_menu_back-110x110@2x.png) 20 20 20 20 repeat; 
+	-webkit-border-image: url(gfx/context_menu_back-110x110@2x.png) 20 20 20 20 repeat; 
+	-o-border-image: url(gfx/context_menu_back-110x110@2x.png) 20 20 20 20 repeat; 
+	border-image: url(gfx/context_menu_back-110x110@2x.png) 20 20 20 20 fill repeat; 
+}

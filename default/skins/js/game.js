@@ -79,6 +79,15 @@ function qspSkinGetObjectHtml(object, index) {
 							"<div class='skin-object-text'>%TEXT%</div></div></center>";
 	return qspGetDefaultObjectHtml(object, index);
 }
+// Создание разметки для пункта меню.
+function qspSkinGetMenuItemHtml(menuItem, index)
+{
+	qspMenuListItemFormat = "<div class='skin-menu-item'><div class='skin-menu-item-helper'></div>" + 
+							((menuItem.image.length > 0) ?"<div class='skin-menu-item-image'><img src='%IMAGE%'></div>" : "") + 
+							"<div class='skin-menu-item-text'>%TEXT%</div></div>";
+							
+	return qspGetDefaultMenuItemHtml(menuItem, index);
+}
 
 
 /* Собственные функции скина */ 
