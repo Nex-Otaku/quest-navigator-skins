@@ -1011,6 +1011,7 @@ body.retina #skin-user-menu-background
 }
 .skin-menu-item-text {
 	padding: 3px 12px 3px 12px;
+	text-decoration: underline;
 }
 .qsp-user-menu-divider {
 	padding: 0 12px;
