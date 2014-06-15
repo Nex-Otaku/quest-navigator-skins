@@ -991,3 +991,30 @@ body.retina #skin-user-menu-background
 	-o-border-image: url(gfx/context_menu_back-110x110@2x.png) 20 20 20 20 repeat; 
 	border-image: url(gfx/context_menu_back-110x110@2x.png) 20 20 20 20 fill repeat; 
 }
+/* Для выравнивания по вертикали картинки и текста пункта контекстного меню,
+составляем таблицу. */
+.skin-menu-item-outer {
+	display: table;
+}
+.skin-menu-item-inner {
+	display: table-row;
+}
+.skin-menu-item-image,
+.skin-menu-item-text {
+	display: table-cell;
+	vertical-align: middle;
+	height: 40px;
+}
+.skin-menu-item-image {
+	line-height: 1px; /* убираем лишнее пустое место над и под картинкой */
+	padding: 3px 0 3px 12px;
+}
+.skin-menu-item-text {
+	padding: 3px 12px 3px 12px;
+}
+.qsp-user-menu-divider {
+	padding: 0 12px;
+}
+#qsp-dialog-user-menu-container {
+	margin: 2px 1px;
+}

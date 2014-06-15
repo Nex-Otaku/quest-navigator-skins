@@ -56,7 +56,7 @@ function qspSkinOnInitApi() {
 	
 	/* для отладки */
 	$(document.body).click(function (ev) {
-		console.log($(ev.target).attr('id'));
+//		console.log($(ev.target).attr('id'));
 	});
 	
 	/* Настройки форматов */
@@ -82,9 +82,9 @@ function qspSkinGetObjectHtml(object, index) {
 // Создание разметки для пункта меню.
 function qspSkinGetMenuItemHtml(menuItem, index)
 {
-	qspMenuListItemFormat = "<div class='skin-menu-item'><div class='skin-menu-item-helper'></div>" + 
+	qspMenuListItemFormat = "<div class='skin-menu-item-outer'><div class='skin-menu-item-inner'>" + 
 							((menuItem.image.length > 0) ?"<div class='skin-menu-item-image'><img src='%IMAGE%'></div>" : "") + 
-							"<div class='skin-menu-item-text'>%TEXT%</div></div>";
+							"<div class='skin-menu-item-text'>%TEXT%</div></div></div>";
 							
 	return qspGetDefaultMenuItemHtml(menuItem, index);
 }
