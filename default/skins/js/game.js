@@ -71,12 +71,12 @@ function qspSkinGetActionHtml(action, index) {
 }
 // Создание разметки для предмета. 
 function qspSkinGetObjectHtml(object, index) {
-	qspObjsListItemFormat = "<center><div class='skin-object'><div class='skin-object-helper'></div>" + 
+	qspObjsListItemFormat = "<center><div class='skin-object-outer'><div class='skin-object-inner'>" + 
 							((object.image.length > 0) ?"<div class='skin-object-image'><img src='%IMAGE%'></div>" : "") + 
-							"<div class='skin-object-text'>%TEXT%</div></div></center>";
-	qspObjsListSelItemFormat = "<center><div class='skin-object selected'><div class='skin-object-helper'></div>" + 
+							"<div class='skin-object-text'>%TEXT%</div></div></div></center>";
+	qspObjsListSelItemFormat = "<center><div class='skin-object-outer selected'><div class='skin-object-inner'>" + 
 							((object.image.length > 0) ?"<div class='skin-object-image'><img src='%IMAGE%'></div>" : "") + 
-							"<div class='skin-object-text'>%TEXT%</div></div></center>";
+							"<div class='skin-object-text'>%TEXT%</div></div></div></center>";
 	return qspGetDefaultObjectHtml(object, index);
 }
 // Создание разметки для пункта меню.

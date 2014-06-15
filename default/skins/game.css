@@ -934,37 +934,23 @@ body.retina #skin-right-column-background
 	text-decoration: underline;
 }
 
-/* Для выравнивания по вертикали картинки и текста предмета,
-используем хитрый трюк CSS.
-1. Выставляем фиксированную высоту для контейнера ".skin-object".
-2. Добавляем пустой DIV ".skin-object-helper" со свойствами 
-	height: 100%;
-	display: inline-block;
-	vertical-align: middle;
-Он займёт всю высоту контейнера, как бы задаст высоту строки.
-3. Добавляем оставшиеся элементы со свойствами
-	display: inline-block;
-	vertical-align: middle;
-Они будут выравниваться посередине по вертикали, 
-засчёт того, что хэлпер уже задал ориентир высоты.
-*/
-.skin-object {
-	min-height: 30px;
+/* Для выравнивания картинки и текста предмета по вертикали,
+составляем таблицу. */
+.skin-object-outer {
+	display: table;
 }
-.skin-object-helper {
-	display: inline-block;
-	height: 100%;
-	width: 0;
-	vertical-align: middle;
+.skin-object-inner {
+	display: table-row;
 }
 .skin-object-image,
 .skin-object-text {
-	display: inline-block;
+	display: table-cell;
 	vertical-align: middle;
+	height: 30px;
 }
 .skin-object-image {
 	line-height: 1px; /* убираем лишнее пустое место над и под картинкой */
-	margin: 3px 6px 3px 0;
+	padding: 3px 6px 3px 0;
 }
 /* Ссылка на предмет "чёрного" цвета (как основной текст), 
 выбранный предмет подчёркивается. */
