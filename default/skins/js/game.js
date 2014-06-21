@@ -127,9 +127,6 @@ function skinToggleMusic() {
 
 function skinSetMusicButton(skinMusic) {
 	$('#qsp-user-music').toggleClass('on', skinMusic);
-/*
-	skinToggleButton('#qsp-user-music img', '(button_music_)(on|off)(_pressed)?', '$1' + (skinMusic ? 'on' : 'off') + '$3');
-	*/
 }
 
 function skinSetStage(cssClass) {
@@ -143,19 +140,6 @@ function skinSetStage(cssClass) {
 		t.addClass(cssClass);
 	}
 }
-
-/*
-function skinToggleButton(selector, pattern, replacement) {
-	var t = $(selector);
-	if (t.length == 0)
-		return;
-	var re = new RegExp(pattern, "g");
-	var btn1 = t.attr('src').replace(re, replacement);
-	var btn2 = t.attr('data-pressed').replace(re, replacement);
-	t.attr('src', btn1);
-	t.attr('data-pressed', btn2);
-}
-*/
 
 function skinRefreshBugfix()
 {
