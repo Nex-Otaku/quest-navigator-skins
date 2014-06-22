@@ -132,38 +132,43 @@ $(document).ready(function(){
         </div>
     </div>
     
-    <div id="qsp-dialog-system-menu">
+    <div id="qsp-dialog-system-menu" class="qsp-skin-dialog">
+		<div class="qsp-skin-dialog-centering">
+			<div class="qsp-skin-system-menu-container">
+				<div class="qsp-skin-system-menu-background"></div>
+				<div class="qsp-skin-system-menu-table">
+					<div class="qsp-skin-system-menu-row">
+						<div class="qsp-skin-system-menu-cell">
+							<center>
+								<a href="#" onclick="javascript:qspLoadGame(); return false;">Загрузить</a>
+							</center>
+						</div>
+					</div>
+					<div class="qsp-skin-system-menu-row">
+						<div class="qsp-skin-system-menu-cell">
+							<center>
+								<a href="#" onclick="javascript:qspSaveGame(); return false;">Сохранить</a>
+							</center>
+						</div>
+					</div>
+					<div class="qsp-skin-system-menu-row">
+						<div class="qsp-skin-system-menu-cell">
+							<center>
+								<a href="#" onclick="javascript:qspRestartGame(); return false;">Заново</a>
+							</center>
+						</div>
+					</div>
+					<div class="qsp-skin-system-menu-row">
+						<div class="qsp-skin-system-menu-cell">
+							<center>
+								<a href="#" onclick="javascript:qspDefaultGame(); return false;">Другие игры</a>
+							</center>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
         <div class="qsp-skin-overlay"></div>
-        <div id="qsp-dialog-system-menu-container">
-			<div class="qsp-skin-system-menu-row">
-				<div class="qsp-skin-system-menu-cell">
-					<center>
-						<a href="#" onclick="javascript:qspLoadGame(); return false;">Загрузить</a>
-					</center>
-				</div>
-            </div>
-			<div class="qsp-skin-system-menu-row">
-				<div class="qsp-skin-system-menu-cell">
-					<center>
-						<a href="#" onclick="javascript:qspSaveGame(); return false;">Сохранить</a>
-					</center>
-				</div>
-            </div>
-			<div class="qsp-skin-system-menu-row">
-				<div class="qsp-skin-system-menu-cell">
-					<center>
-						<a href="#" onclick="javascript:qspRestartGame(); return false;">Заново</a>
-					</center>
-				</div>
-            </div>
-			<div class="qsp-skin-system-menu-row">
-				<div class="qsp-skin-system-menu-cell">
-					<center>
-						<a href="#" onclick="javascript:qspDefaultGame(); return false;">Другие игры</a>
-					</center>
-				</div>
-            </div>
-        </div>
     </div>
     
     <div id="qsp-dialog-save-slots">

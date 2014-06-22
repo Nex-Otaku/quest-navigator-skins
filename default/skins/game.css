@@ -102,7 +102,7 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 #qsp-system-menu-button img { float:left; }
 
 
-.qsp-skin-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #5c5c5c; opacity: .70;filter:Alpha(Opacity=70); -webkit-tap-highlight-color: rgba(0,0,0,0); }
+.qsp-skin-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #5c5c5c; opacity: .70;filter:Alpha(Opacity=70); -webkit-tap-highlight-color: rgba(0,0,0,0); z-index:-2; }
 
 .qsp-skin-action-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
@@ -178,13 +178,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 	display:inline-block;
 	text-align:center;
 }
-
-/* SYSTEM MENU */
-#qsp-dialog-system-menu-background, #qsp-dialog-system-menu-container { position: fixed;  left:50%; top:50%; width:199px; height:199px; margin-top:-100px; margin-left:-100px; }
-
-#qsp-dialog-system-menu-container { padding:0px; display: table; }
-#qsp-dialog-system-menu-container .qsp-skin-system-menu-row { display: table-row; }
-#qsp-dialog-system-menu-container .qsp-skin-system-menu-cell { display: table-cell; vertical-align:middle; }
 
 /* VIEW */
 /* VIEW_ALWAYS_SHOW = 0, диалог */
@@ -583,7 +576,6 @@ a.disabled
 #qsp-button-error-ok,
 #qsp-dialog-input-container,
 #qsp-button-input-ok,
-#qsp-dialog-system-menu-container,
 #qsp-dialog-save-slots-wrapper1,
 #qsp-dialog-user-menu
 { 
@@ -1018,4 +1010,70 @@ body.retina #skin-user-menu-background
 }
 #qsp-dialog-user-menu-container {
 	margin: 2px 1px;
+}
+
+/* Для выравнивания диалога по вертикали используем хитрый трюк CSS.
+См. http://css-tricks.com/centering-in-the-unknown/
+Создаём с помощью псевдоэлемента невидимый блок по высоте всего окна, центрируя его по вертикали "vertical-align:middle",
+он как бы задаёт высоту строки для центрирования. 
+Следующий за ним блок тоже центрируем по вертикали, по той же оси.
+Оба блока располагаются в строку, для этого выставляем "display:inline-block".
+Получается, что внутренний блок всегда будет по вертикали по центру, 
+вне зависимости от собственной высоты или же высоты внешнего блока. */
+.qsp-skin-dialog {
+	text-align: center;
+    font-size:0;
+}
+.qsp-skin-dialog:before {
+	content: '';
+	display: inline-block;
+	height: 100%; 
+	vertical-align: middle;
+}
+.qsp-skin-dialog-centering {
+	font-size:initial;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* SYSTEM MENU */
+.qsp-skin-system-menu-container {
+	position: relative;
+}
+/* Фон "выступает" за края контента на два пиксела. */
+.qsp-skin-system-menu-background {
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	right: -2px;
+	bottom: -2px;
+	z-index: -1;
+}
+body:not(.retina) .qsp-skin-system-menu-background
+{
+	border-style: solid;
+	border-width: 32px 32px 32px 32px; 
+	-moz-border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 repeat; 
+	-webkit-border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 repeat; 
+	-o-border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 repeat; 
+	border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 fill repeat;
+}
+body.retina .qsp-skin-system-menu-background
+{
+	-moz-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
+	-webkit-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
+	-o-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
+	border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 fill repeat; 
+}
+.qsp-skin-system-menu-container .qsp-skin-system-menu-table {
+	padding: 20px 30px; 
+	display: table; 
+}
+.qsp-skin-system-menu-container .qsp-skin-system-menu-row { 
+	display: table-row;
+	height: 40px;
+}
+.qsp-skin-system-menu-container .qsp-skin-system-menu-cell { 
+	display: table-cell; 
+	vertical-align:middle; 
 }
