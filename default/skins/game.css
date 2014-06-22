@@ -207,44 +207,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 	margin-bottom: 10px;
 }
 
-/* SAVE SLOTS */
-/* 
- * выравниваем по центру вертикально и горизонтально, отнимая половину фиксированной ширины и высоты в margin
- * высота и ширина самого диалога нам известны заранее, а размеры экрана могут быть любыми
- */
-#skin-dialog-save-slots-wrapper1 { 
-position: absolute; left:50%; top:50%; width:199px; height:199px; margin-top:-100px; margin-left:-100px; overflow:hidden; 
-background-image:url("gfx/system_menu_back-199x199.png");
-background-size:199px 199px;
--webkit-background-size:199px 199px;
-}
-body.retina #skin-dialog-save-slots-wrapper1 { 
-	background-image:url("gfx/system_menu_back-199x199@2x.png") !important;
-}
-/*
- * выравниваем список слотов горизонтально по центру, учитывая что ширина списка может варьироваться
- * http://www.tightcss.com/centering/center_variable_width.htm
- */
-#skin-dialog-save-slots-wrapper2 { float:left;
-	position:relative;
-	left:50%;
-	top:0px;
-	margin:0px;
-	padding:0px;
- }
-#qsp-dialog-save-slots-container { float:left;
-	position:relative;
-	left:-50%;
-	top:6px;
-	width:auto;
-	margin:0px;
-	padding:0px;
-}
-
-.qsp-save-slot-enabled, .qsp-save-slot-disabled { float:left; clear:both; margin-top:14px; width:100%; padding:0px; }
-.qsp-save-slot-enabled div, .qsp-save-slot-disabled div { padding-left:30px; padding-right:30px; padding-top:0px; padding-bottom:0px; margin:0px; }
-
-.qsp-save-slot-disabled { cursor: default; }
 
 /* INPUT DIALOG */
 /* Этот диалог растягивается, и зависит от размеров картинки бэкграунда, указанных в qsp-dialog-input-container */
@@ -576,7 +538,6 @@ a.disabled
 #qsp-button-error-ok,
 #qsp-dialog-input-container,
 #qsp-button-input-ok,
-#skin-dialog-save-slots-wrapper1,
 #qsp-dialog-user-menu
 { 
 	background-color:#FFFFFF;
@@ -1036,12 +997,14 @@ body.retina #skin-user-menu-background
 	vertical-align: middle;
 }
 
-/* SYSTEM MENU */
-.skin-system-menu-container {
+/* Общие фоны для диалогов. */
+.skin-system-menu-container,
+#skin-save-slots-wrapper {
 	position: relative;
 }
 /* Фон "выступает" за края контента на два пиксела. */
-.skin-system-menu-background {
+.skin-system-menu-background,
+.skin-save-slots-background {
 	position: absolute;
 	left: -2px;
 	top: -2px;
@@ -1049,7 +1012,8 @@ body.retina #skin-user-menu-background
 	bottom: -2px;
 	z-index: -1;
 }
-body:not(.retina) .skin-system-menu-background
+body:not(.retina) .skin-system-menu-background,
+body:not(.retina) .skin-save-slots-background
 {
 	border-style: solid;
 	border-width: 32px 32px 32px 32px; 
@@ -1058,22 +1022,33 @@ body:not(.retina) .skin-system-menu-background
 	-o-border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 repeat; 
 	border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 fill repeat;
 }
-body.retina .skin-system-menu-background
+body.retina .skin-system-menu-background,
+body.retina .skin-save-slots-background
 {
 	-moz-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	-webkit-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	-o-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 fill repeat; 
 }
-.skin-system-menu-container .skin-system-menu-table {
+
+/* Общие правила для диалога системного меню и слотов сохранения. */
+/* SYSTEM MENU */
+/* SAVE SLOTS */
+.skin-system-menu-container .skin-system-menu-table,
+#qsp-dialog-save-slots-container {
 	padding: 20px 30px; 
 	display: table; 
 }
-.skin-system-menu-container .skin-system-menu-row { 
+.skin-system-menu-container .skin-system-menu-row,
+.qsp-save-slot-enabled, .qsp-save-slot-disabled { 
 	display: table-row;
 	height: 40px;
 }
-.skin-system-menu-container .skin-system-menu-cell { 
+.skin-system-menu-container .skin-system-menu-cell,
+.qsp-save-slot-enabled > div, .qsp-save-slot-disabled > div { 
 	display: table-cell; 
 	vertical-align:middle; 
 }
+
+/* SAVE SLOTS */
+.qsp-save-slot-disabled { cursor: default; }
