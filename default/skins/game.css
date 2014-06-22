@@ -36,10 +36,10 @@ div {
 
 img { -webkit-user-drag: none; }
 
-a, .qsp-skin-button, .qsp-action, .qsp-save-slot-enabled { -webkit-tap-highlight-color: rgba(0,0,0,0); cursor:pointer; }
+a, .qsp-button, .qsp-action, .qsp-save-slot-enabled { -webkit-tap-highlight-color: rgba(0,0,0,0); cursor:pointer; }
 
 /* Кнопка на первой странице - в IE почему-то показывается рамка */
-.qsp-skin-button img{ border:none; }
+.qsp-button img{ border:none; }
 
 body { margin:0;	padding:0; }
 
@@ -102,11 +102,11 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 #qsp-system-menu-button img { float:left; }
 
 
-.qsp-skin-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #5c5c5c; opacity: .70;filter:Alpha(Opacity=70); -webkit-tap-highlight-color: rgba(0,0,0,0); z-index:-2; }
+.qsp-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #5c5c5c; opacity: .70;filter:Alpha(Opacity=70); -webkit-tap-highlight-color: rgba(0,0,0,0); z-index:-2; }
 
-.qsp-skin-action-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+.skin-action-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
-.qsp-skin-dialog { position: absolute; }
+.skin-dialog { position: absolute; }
 
 /* Обложка */
 #qsp-cover-wrapper { text-align:center; width:320px; padding-top:11px; position:relative; left:50%; margin-left:-160px; }
@@ -212,20 +212,20 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
  * выравниваем по центру вертикально и горизонтально, отнимая половину фиксированной ширины и высоты в margin
  * высота и ширина самого диалога нам известны заранее, а размеры экрана могут быть любыми
  */
-#qsp-dialog-save-slots-wrapper1 { 
+#skin-dialog-save-slots-wrapper1 { 
 position: absolute; left:50%; top:50%; width:199px; height:199px; margin-top:-100px; margin-left:-100px; overflow:hidden; 
 background-image:url("gfx/system_menu_back-199x199.png");
 background-size:199px 199px;
 -webkit-background-size:199px 199px;
 }
-body.retina #qsp-dialog-save-slots-wrapper1 { 
+body.retina #skin-dialog-save-slots-wrapper1 { 
 	background-image:url("gfx/system_menu_back-199x199@2x.png") !important;
 }
 /*
  * выравниваем список слотов горизонтально по центру, учитывая что ширина списка может варьироваться
  * http://www.tightcss.com/centering/center_variable_width.htm
  */
-#qsp-dialog-save-slots-wrapper2 { float:left;
+#skin-dialog-save-slots-wrapper2 { float:left;
 	position:relative;
 	left:50%;
 	top:0px;
@@ -352,7 +352,7 @@ body.retina #qsp-user-music.on {
 	height:40px;
 	z-index:1;
 }
-#skin-user2 .qsp-skin-button:not(:last-child) {
+#skin-user2 .qsp-button:not(:last-child) {
 	margin-left: 6px;
 }
 /* 
@@ -515,8 +515,8 @@ body,
 }
 
 /* "Кнопки" основных диалогов */
-#qsp-dialog-save-slots,
-#qsp-dialog-system-menu
+#qsp-dialog-save-slots-container,
+.skin-system-menu-container
 {
 	font-size: 18px;
 }
@@ -576,7 +576,7 @@ a.disabled
 #qsp-button-error-ok,
 #qsp-dialog-input-container,
 #qsp-button-input-ok,
-#qsp-dialog-save-slots-wrapper1,
+#skin-dialog-save-slots-wrapper1,
 #qsp-dialog-user-menu
 { 
 	background-color:#FFFFFF;
@@ -1020,28 +1020,28 @@ body.retina #skin-user-menu-background
 Оба блока располагаются в строку, для этого выставляем "display:inline-block".
 Получается, что внутренний блок всегда будет по вертикали по центру, 
 вне зависимости от собственной высоты или же высоты внешнего блока. */
-.qsp-skin-dialog {
+.skin-dialog {
 	text-align: center;
     font-size:0;
 }
-.qsp-skin-dialog:before {
+.skin-dialog:before {
 	content: '';
 	display: inline-block;
 	height: 100%; 
 	vertical-align: middle;
 }
-.qsp-skin-dialog-centering {
+.skin-dialog-centering {
 	font-size:initial;
 	display: inline-block;
 	vertical-align: middle;
 }
 
 /* SYSTEM MENU */
-.qsp-skin-system-menu-container {
+.skin-system-menu-container {
 	position: relative;
 }
 /* Фон "выступает" за края контента на два пиксела. */
-.qsp-skin-system-menu-background {
+.skin-system-menu-background {
 	position: absolute;
 	left: -2px;
 	top: -2px;
@@ -1049,7 +1049,7 @@ body.retina #skin-user-menu-background
 	bottom: -2px;
 	z-index: -1;
 }
-body:not(.retina) .qsp-skin-system-menu-background
+body:not(.retina) .skin-system-menu-background
 {
 	border-style: solid;
 	border-width: 32px 32px 32px 32px; 
@@ -1058,22 +1058,22 @@ body:not(.retina) .qsp-skin-system-menu-background
 	-o-border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 repeat; 
 	border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 fill repeat;
 }
-body.retina .qsp-skin-system-menu-background
+body.retina .skin-system-menu-background
 {
 	-moz-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	-webkit-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	-o-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 fill repeat; 
 }
-.qsp-skin-system-menu-container .qsp-skin-system-menu-table {
+.skin-system-menu-container .skin-system-menu-table {
 	padding: 20px 30px; 
 	display: table; 
 }
-.qsp-skin-system-menu-container .qsp-skin-system-menu-row { 
+.skin-system-menu-container .skin-system-menu-row { 
 	display: table-row;
 	height: 40px;
 }
-.qsp-skin-system-menu-container .qsp-skin-system-menu-cell { 
+.skin-system-menu-container .skin-system-menu-cell { 
 	display: table-cell; 
 	vertical-align:middle; 
 }

@@ -31,15 +31,15 @@ $(document).ready(function(){
 	<div id="skin-top-menu-row">
 		<div id="skin-user1">
 			<div id="skin-user1-inner">
-				<a class="qsp-skin-button" onclick="javascript:skinToggleInv();">
+				<a class="qsp-button" onclick="javascript:skinToggleInv();">
 					<div id="skin-inv-toggle"></div>
 					<div id="skin-inv-caption">Инвентарь</div>
 				</a>
 			</div>
 		</div>
 		<div id="skin-user2">
-			<div id="qsp-user-system" class="qsp-skin-button" onclick="javascript:qspShowSystemMenu();"></div>
-			<div id="qsp-user-music" class="qsp-skin-button" onclick="javascript:skinToggleMusic();"></div>
+			<div id="qsp-user-system" class="qsp-button" onclick="javascript:qspShowSystemMenu();"></div>
+			<div id="qsp-user-music" class="qsp-button" onclick="javascript:skinToggleMusic();"></div>
 		</div>
 	</div>
 </div>
@@ -88,7 +88,7 @@ $(document).ready(function(){
     <!-- Диалоги -->
     <!-- Отрисовываются поверх всего, поэтому идут последними -->
     <div id="qsp-dialog-msg">
-        <div class="qsp-skin-overlay"></div>
+        <div class="qsp-overlay"></div>
         <div id="qsp-dialog-msg-container">
             <div id="qsp-wrapper-msg">
                 <div id="qsp-scroller-msg" >
@@ -100,7 +100,7 @@ $(document).ready(function(){
 			<div id="qsp-dialog-msg-bottom-block">
 				<div id="qsp-dialog-msg-bottom-wrapper">
 					<div id="qsp-dialog-msg-bottom-container">
-	<div id="qsp-button-msg-ok" class="qsp-skin-button" onclick="javascript:qspCloseMsg();">
+	<div id="qsp-button-msg-ok" class="qsp-button" onclick="javascript:qspCloseMsg();">
 		<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
     </div>
 					</div>
@@ -110,7 +110,7 @@ $(document).ready(function(){
     </div>
     
     <div id="qsp-dialog-input">
-        <div class="qsp-skin-overlay"></div>
+        <div class="qsp-overlay"></div>
 		<div id="qsp-dialog-input-container">
             <div id="qsp-dialog-input-content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -121,7 +121,7 @@ $(document).ready(function(){
                     <div id="qsp-dialog-input-bottom-wrapper-dummy">
                     <div id="qsp-dialog-input-bottom-wrapper">
                         <div id="qsp-dialog-input-bottom-container">
-							<div id="qsp-button-input-ok" class="qsp-skin-button" onclick="javascript:qspCloseInput(true);">
+							<div id="qsp-button-input-ok" class="qsp-button" onclick="javascript:qspCloseInput(true);">
 								<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
 							</div>
                         </div>
@@ -132,34 +132,34 @@ $(document).ready(function(){
         </div>
     </div>
     
-    <div id="qsp-dialog-system-menu" class="qsp-skin-dialog">
-		<div class="qsp-skin-dialog-centering">
-			<div class="qsp-skin-system-menu-container">
-				<div class="qsp-skin-system-menu-background"></div>
-				<div class="qsp-skin-system-menu-table">
-					<div class="qsp-skin-system-menu-row">
-						<div class="qsp-skin-system-menu-cell">
+    <div id="qsp-dialog-system-menu" class="skin-dialog">
+		<div class="skin-dialog-centering">
+			<div class="skin-system-menu-container">
+				<div class="skin-system-menu-background"></div>
+				<div class="skin-system-menu-table">
+					<div class="skin-system-menu-row">
+						<div class="skin-system-menu-cell">
 							<center>
 								<a href="#" onclick="javascript:qspLoadGame(); return false;">Загрузить</a>
 							</center>
 						</div>
 					</div>
-					<div class="qsp-skin-system-menu-row">
-						<div class="qsp-skin-system-menu-cell">
+					<div class="skin-system-menu-row">
+						<div class="skin-system-menu-cell">
 							<center>
 								<a href="#" onclick="javascript:qspSaveGame(); return false;">Сохранить</a>
 							</center>
 						</div>
 					</div>
-					<div class="qsp-skin-system-menu-row">
-						<div class="qsp-skin-system-menu-cell">
+					<div class="skin-system-menu-row">
+						<div class="skin-system-menu-cell">
 							<center>
 								<a href="#" onclick="javascript:qspRestartGame(); return false;">Заново</a>
 							</center>
 						</div>
 					</div>
-					<div class="qsp-skin-system-menu-row">
-						<div class="qsp-skin-system-menu-cell">
+					<div class="skin-system-menu-row">
+						<div class="skin-system-menu-cell">
 							<center>
 								<a href="#" onclick="javascript:qspDefaultGame(); return false;">Другие игры</a>
 							</center>
@@ -168,16 +168,18 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div>
-        <div class="qsp-skin-overlay"></div>
+        <div class="qsp-overlay"></div>
     </div>
     
-    <div id="qsp-dialog-save-slots">
-        <div class="qsp-skin-overlay"></div>
-	<div id="qsp-dialog-save-slots-wrapper1" class="not-qsp-skin-dialog">
-            <div id="qsp-dialog-save-slots-wrapper2">
-                <div id="qsp-dialog-save-slots-container"></div>
-            </div>
+    <div id="qsp-dialog-save-slots" class="skin-dialog">
+		<div class="skin-dialog-centering">
+			<div id="skin-dialog-save-slots-wrapper1">
+				<div id="skin-dialog-save-slots-wrapper2">
+					<div id="qsp-dialog-save-slots-container"></div>
+				</div>
+			</div>
         </div>
+        <div class="qsp-overlay"></div>
     </div>
     
 	<div id="qsp-dialog-user-menu" class="contextMenu">
@@ -186,12 +188,12 @@ $(document).ready(function(){
     </div>
     
     <div id="qsp-dialog-view">
-        <div class="qsp-skin-overlay"></div>
+        <div class="qsp-overlay"></div>
 		<div id="qsp-dialog-view-image-container"></div>
     </div>
     
     <div id="qsp-dialog-error">
-        <div class="qsp-skin-overlay"></div>
+        <div class="qsp-overlay"></div>
 		<div id="qsp-dialog-error-container">
 			<div id="qsp-dialog-error-background"></div>
 			<div id="qsp-dialog-error-top-row">
@@ -201,7 +203,7 @@ $(document).ready(function(){
 			</div>
 			<div id="qsp-dialog-error-bottom-row">
 				<div id="qsp-dialog-error-bottom-wrapper">
-					<div id="qsp-button-error-ok" class="qsp-skin-button" onclick="javascript:qspCloseError();">
+					<div id="qsp-button-error-ok" class="qsp-button" onclick="javascript:qspCloseError();">
 						<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
 					</div>
 				</div>
