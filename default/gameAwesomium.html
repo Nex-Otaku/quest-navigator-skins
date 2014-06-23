@@ -104,7 +104,7 @@ $(document).ready(function(){
 				</div>
 				<div id="skin-dialog-msg-bottom-block">
 					<div id="skin-dialog-msg-bottom-wrapper">
-						<div id="skin-button-msg-ok" class="qsp-button" onclick="javascript:qspCloseMsg();">OK</div>
+						<div class="qsp-button skin-button-ok" onclick="javascript:qspCloseMsg();">OK</div>
 					</div>
 				</div>
 			</div>
@@ -135,9 +135,9 @@ $(document).ready(function(){
     
     <div id="qsp-dialog-system-menu" class="skin-dialog">
 		<div class="skin-dialog-centering">
-			<div class="skin-system-menu-container">
+			<div id="skin-system-menu-container">
 				<div class="skin-dialog-background"></div>
-				<div class="skin-system-menu-table">
+				<div id="skin-system-menu-table">
 					<div class="skin-system-menu-row">
 						<div class="skin-system-menu-cell">
 							<center>
@@ -192,23 +192,23 @@ $(document).ready(function(){
 		<div id="qsp-dialog-view-image-container"></div>
     </div>
     
-    <div id="qsp-dialog-error">
-        <div class="qsp-overlay"></div>
-		<div id="qsp-dialog-error-container">
-			<div id="qsp-dialog-error-background"></div>
-			<div id="qsp-dialog-error-top-row">
-				<div id="qsp-dialog-error-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div id="qsp-dialog-error" class="skin-dialog">
+		<div class="skin-dialog-centering">
+			<div id="skin-dialog-error-container">
+				<div class="skin-dialog-background"></div>
+				<div id="skin-dialog-error-top-row">
+					<div id="qsp-dialog-error-content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
 				</div>
-			</div>
-			<div id="qsp-dialog-error-bottom-row">
-				<div id="qsp-dialog-error-bottom-wrapper">
-					<div id="qsp-button-error-ok" class="qsp-button" onclick="javascript:qspCloseError();">
-						<div class='np-action-outer'><div class='np-action-inner'>OK</div></div>
+				<div id="skin-dialog-error-bottom-row">
+					<div id="skin-dialog-error-bottom-wrapper">
+						<div class="qsp-button skin-button-ok" onclick="javascript:qspCloseError();">OK</div>
 					</div>
 				</div>
 			</div>
 		</div>
+        <div class="qsp-overlay"></div>
 	</div>
     <div id="qsp-android-refresh-bugfix"></div>
 </body>
