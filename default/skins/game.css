@@ -97,7 +97,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 
 #qsp-wrapper-main { height:100%; width:100%; word-wrap: break-word; }
 
-#qsp-wrapper-msg { position:absolute; overflow:hidden; }
 #qsp-system-menu-button { position:absolute; left:0px; top:0px; }
 #qsp-system-menu-button img { float:left; }
 
@@ -106,46 +105,9 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 
 .skin-action-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 
-.skin-dialog { position: absolute; }
-
 /* Обложка */
 #qsp-cover-wrapper { text-align:center; width:320px; padding-top:11px; position:relative; left:50%; margin-left:-160px; }
 #qsp-cover-wrapper a img{ margin-top:3px; }
-
-/* MSG */
-#qsp-dialog-msg { }
-#qsp-dialog-msg-content { text-align:justify; padding-right:12px; }
-#qsp-dialog-msg-container { 
-	position: absolute; 
-	left:50%; 
-	top:50%; 
-	width:240px; 
-	height:198px; 
-	margin-top:-99px; 
-	margin-left:-120px; 
-}
-#qsp-button-msg-ok { 
-	position:static; 
-	clear:both; 
-	padding: 2px 10px;
-}
-#qsp-wrapper-msg { float:left; width:auto; height:110px; margin-left:20px; margin-right:20px; margin-top:20px;}
-#qsp-dialog-msg-bottom-block { position:absolute; bottom:0; width:100%; overflow:hidden; }
-#qsp-dialog-msg-bottom-wrapper { float:left;
-	position:relative;
-	left:50%;
-	top:0px;
-	height:100%;
- }
-#qsp-dialog-msg-bottom-container { float:left;
-	position:relative;
-	left:-50%;
-	top:0px;
-	width:auto;
-	height:100%;
-	padding:10px;
-}
-
 
 /* ERROR */
 #qsp-dialog-error-container { 
@@ -532,8 +494,6 @@ a.disabled
 }
 
 /* Блоки с цветом по умолчанию */
-#qsp-dialog-msg-container,
-#qsp-button-msg-ok,
 #qsp-dialog-error-container,
 #qsp-button-error-ok,
 #qsp-dialog-input-container,
@@ -1003,8 +963,7 @@ body.retina #skin-user-menu-background
 	position: relative;
 }
 /* Фон "выступает" за края контента на два пиксела. */
-.skin-system-menu-background,
-.skin-save-slots-background {
+.skin-dialog-background {
 	position: absolute;
 	left: -2px;
 	top: -2px;
@@ -1012,8 +971,7 @@ body.retina #skin-user-menu-background
 	bottom: -2px;
 	z-index: -1;
 }
-body:not(.retina) .skin-system-menu-background,
-body:not(.retina) .skin-save-slots-background
+body:not(.retina) .skin-dialog-background
 {
 	border-style: solid;
 	border-width: 32px 32px 32px 32px; 
@@ -1022,8 +980,7 @@ body:not(.retina) .skin-save-slots-background
 	-o-border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 repeat; 
 	border-image: url(gfx/dialog_back-104x104.png) 32 32 32 32 fill repeat;
 }
-body.retina .skin-system-menu-background,
-body.retina .skin-save-slots-background
+body.retina .skin-dialog-background
 {
 	-moz-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
 	-webkit-border-image: url(gfx/dialog_back-104x104@2x.png) 32 32 32 32 repeat; 
@@ -1052,3 +1009,64 @@ body.retina .skin-save-slots-background
 
 /* SAVE SLOTS */
 .qsp-save-slot-disabled { cursor: default; }
+
+/* MSG */
+#qsp-dialog-msg-content {
+	text-align:justify; 
+	padding: 0 16px; /* отступ для скролла */
+}
+#skin-button-msg-ok { 
+	position:static; 
+	clear:both; 
+	padding: 2px 10px;
+}
+#skin-dialog-msg-container {
+	position: relative;
+	display: table;
+}
+#skin-dialog-msg-top-block,
+#skin-dialog-msg-bottom-block {
+	display: table-row;
+}
+#skin-dialog-msg-top-container,
+#skin-dialog-msg-bottom-wrapper {
+	display: table-cell;
+}
+#skin-dialog-msg-top-container {
+	vertical-align: middle;
+}
+#skin-dialog-msg-bottom-wrapper {
+	vertical-align: top;
+}
+#qsp-wrapper-msg {
+	position: relative;
+	width: 260px;
+	max-height: 160px;
+}
+#skin-dialog-msg-top-container {
+	padding: 20px 6px 27px 6px;
+}
+#skin-dialog-msg-bottom-wrapper {
+	height: 50px;
+	overflow: hidden;
+}
+#skin-button-msg-ok {
+	display: inline-block;
+	min-width: 92px;
+}
+body:not(.retina) #skin-button-msg-ok
+{
+	border-style: solid;
+	border-width: 4px 4px 4px 4px; 
+	-moz-border-image: url(gfx/button_ok-10x10.png) 4 4 4 4 repeat; 
+	-webkit-border-image: url(gfx/button_ok-10x10.png) 4 4 4 4 repeat; 
+	-o-border-image: url(gfx/button_ok-10x10.png) 4 4 4 4 repeat; 
+	border-image: url(gfx/button_ok-10x10.png) 4 4 4 4 fill repeat;
+}
+body.retina #skin-button-msg-ok
+{
+	-moz-border-image: url(gfx/button_ok-10x10@2x.png) 4 4 4 4 repeat; 
+	-webkit-border-image: url(gfx/button_ok-10x10@2x.png) 4 4 4 4 repeat; 
+	-o-border-image: url(gfx/button_ok-10x10@2x.png) 4 4 4 4 repeat; 
+	border-image: url(gfx/button_ok-10x10@2x.png) 4 4 4 4 fill repeat; 
+}
