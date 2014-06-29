@@ -113,10 +113,10 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 /* VIEW_ALWAYS_SHOW = 0, диалог */
 #qsp-dialog-view-image-container {
     position: fixed;
-    top:10px;
-    bottom:10px;
-    left:10px;
-    right:10px;
+    top:9px;
+    bottom:9px;
+    left:9px;
+    right:9px;
 }
 #qsp-dialog-view-image-container img {
     max-width:100%;
@@ -127,6 +127,7 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
     left: 0;
     right: 0;
     bottom: 0;    
+	border: 1px solid #616161;
 }
 /* VIEW_ALWAYS_SHOW = 1, окно "встроено" в описание */
 #qsp-view {
