@@ -144,7 +144,7 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 	background-size:240px 198px;
 	-webkit-background-size:240px 198px;
 }
-#qsp-dialog-input-content, #qsp-dialog-input-text, #qsp-button-input-ok { position:static; clear:both; }
+#qsp-dialog-input-content, #qsp-dialog-input-text { position:static; clear:both; }
 #qsp-dialog-input-content { padding-left:20px; padding-right:20px; padding-top:15px;}
 #skin-dialog-input-bottom-block { position:absolute; bottom:0; width:100%; overflow:hidden; }
 #skin-dialog-input-bottom-wrapper { float:left;
@@ -161,9 +161,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 	height:100%;
 	padding-top:5px;
 	padding-bottom:10px;
-}
-#qsp-button-input-ok {
-	padding: 2px 10px;
 }
 
 /* MAIN DESC AND VARS DESC */
@@ -458,13 +455,6 @@ a.disabled
 .game-title
 {
 	color: #F30D0D;
-}
-
-/* Блоки с цветом по умолчанию */
-#qsp-button-input-ok,
-#qsp-dialog-user-menu
-{ 
-	background-color:#FFFFFF;
 }
 
 /* Подключаемые шрифты */
