@@ -139,22 +139,21 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 
 
 /* INPUT DIALOG */
-/* Этот диалог растягивается, и зависит от размеров картинки бэкграунда, указанных в qsp-dialog-input-container */
-#qsp-dialog-input-container { 
+#skin-dialog-input-container { 
 	position: absolute; left:50%; top:50%; width:240px; height:198px; margin-top:-99px; margin-left:-120px; 
 	background-size:240px 198px;
 	-webkit-background-size:240px 198px;
 }
 #qsp-dialog-input-content, #qsp-dialog-input-text, #qsp-button-input-ok { position:static; clear:both; }
 #qsp-dialog-input-content { padding-left:20px; padding-right:20px; padding-top:15px;}
-#qsp-dialog-input-bottom-block { position:absolute; bottom:0; width:100%; overflow:hidden; }
-#qsp-dialog-input-bottom-wrapper { float:left;
+#skin-dialog-input-bottom-block { position:absolute; bottom:0; width:100%; overflow:hidden; }
+#skin-dialog-input-bottom-wrapper { float:left;
 	position:relative;
 	left:50%;
 	top:0px;
 	height:100%;
  }
-#qsp-dialog-input-bottom-container { 
+#skin-dialog-input-bottom-container { 
 	position:relative;
 	left:-50%;
 	top:0px;
@@ -462,7 +461,6 @@ a.disabled
 }
 
 /* Блоки с цветом по умолчанию */
-#qsp-dialog-input-container,
 #qsp-button-input-ok,
 #qsp-dialog-user-menu
 { 
