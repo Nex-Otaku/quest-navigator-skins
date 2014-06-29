@@ -137,32 +137,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 	margin-bottom: 10px;
 }
 
-
-/* INPUT DIALOG */
-#skin-dialog-input-container { 
-	position: absolute; left:50%; top:50%; width:240px; height:198px; margin-top:-99px; margin-left:-120px; 
-	background-size:240px 198px;
-	-webkit-background-size:240px 198px;
-}
-#qsp-dialog-input-content, #qsp-dialog-input-text { position:static; clear:both; }
-#qsp-dialog-input-content { padding-left:20px; padding-right:20px; padding-top:15px;}
-#skin-dialog-input-bottom-block { position:absolute; bottom:0; width:100%; overflow:hidden; }
-#skin-dialog-input-bottom-wrapper { float:left;
-	position:relative;
-	left:50%;
-	top:0px;
-	height:100%;
- }
-#skin-dialog-input-bottom-container { 
-	position:relative;
-	left:-50%;
-	top:0px;
-	width:auto;
-	height:100%;
-	padding-top:5px;
-	padding-bottom:10px;
-}
-
 /* MAIN DESC AND VARS DESC */
 #qsp-main, #qsp-vars { text-align:justify; }
 
@@ -1046,4 +1020,38 @@ body.retina .skin-button-ok
 #skin-dialog-error-bottom-wrapper {
 	text-align: center;
 	padding-bottom: 20px;
+}
+
+/* INPUT DIALOG */
+#skin-dialog-input-container {
+	position: relative;
+	width: 240px;
+	display: table;
+}
+#skin-dialog-input-top-row, 
+#skin-dialog-input-middle-row, 
+#skin-dialog-input-bottom-row {
+	display: table-row;
+}
+#skin-dialog-input-top-wrapper,
+#skin-dialog-input-middle-wrapper,
+#skin-dialog-input-bottom-wrapper { 
+	display: table-cell;
+	text-align: center;
+}
+#skin-dialog-input-top-wrapper,
+#skin-dialog-input-middle-wrapper {
+	padding: 20px 22px 0 22px;
+}
+#skin-dialog-input-bottom-wrapper {
+	padding: 20px 22px;
+}
+#qsp-dialog-input-content,
+#qsp-dialog-input-text,
+#skin-dialog-input-button-ok {
+	display: inline-block;
+}
+
+#qsp-dialog-input-text {
+	width: 180px;
 }
