@@ -58,9 +58,6 @@ function qspSkinOnInitApi() {
 	$(document.body).click(function (ev) {
 //		console.log($(ev.target).attr('id'));
 	});
-	
-	/* Настройки форматов */
-	qspMenuListItemFormat = "<img src='%IMAGE%'> %TEXT%";
 }
 // Создание разметки для действия. 
 function qspSkinGetActionHtml(action, index) {
