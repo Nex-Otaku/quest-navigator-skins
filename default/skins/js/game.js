@@ -109,10 +109,6 @@ function qspSkinOnDeviceSet() {
 	$("#more-games-button a").attr('href', more_games_link);
 }
 
-function qspSkinOnSetGroupedContent() {
-    skinRefreshBugfix();
-}
-
 // Свои функции
 
 
@@ -136,12 +132,4 @@ function skinSetStage(cssClass) {
 	if ((cssClass !== '') && (!t.hasClass(cssClass))) {
 		t.addClass(cssClass);
 	}
-}
-
-function skinRefreshBugfix()
-{
-	// Показываем и сразу скрываем невидимый блок размером с экран.
-	// Без этого в эмуляторе не обновляется описание.
-	$('#qsp-refresh-bugfix').show();
-	$('#qsp-refresh-bugfix').hide();
 }
