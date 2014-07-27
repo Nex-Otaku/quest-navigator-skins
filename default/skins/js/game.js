@@ -1,12 +1,23 @@
-/* Переменные скина */
+// Переменные скина
 var skinMusic = true;
 var skinStage = "";
 
-/* Функции скина для игры */
+// Функции скина для игры
+
+// Колбэки
 
 function qspSkinOnDeviceSet() {
+	// Вызывается, когда мы узнали, на каком устройстве запущена игра
 	var mobile = qspIsAndroid || qspIsIos;
 	$(document.body).toggleClass('mobile', mobile);
+
+	var more_games_link = 'http://qsp.su';
+	if (qspIsAndroid) {
+		more_games_link = 'market://search?q=pub:Butterfly+Lantern';
+	} else if (qspIsIos) {
+		more_games_link = 'itms-apps://itunes.apple.com/ru/artist/butterfly-lantern-interactive/id508671395';
+	}
+	$("#more-games-button a").attr('href', more_games_link);
 }
 
 function qspSkinOnUpdateSkin() {
@@ -18,15 +29,7 @@ function qspSkinOnUpdateSkin() {
 	$(document.body).toggleClass('objs-visible', qspGameSkin.showObjs == 1);
 	$(document.body).toggleClass('vars-visible', qspGameSkin.showVars == 1);
 	
-
-//****************************************************************************************	
-//****************************************************************************************	
-//****************************************************************************************	
 	skinSetMusicButton(skinMusic);
-
-//****************************************************************************************	
-//****************************************************************************************	
-//****************************************************************************************	
 }
 
 function qspSkinOnInitApi() {
@@ -52,12 +55,6 @@ function qspSkinOnInitApi() {
 		}
 		*/
 	}
-	
-	
-	/* для отладки */
-	$(document.body).click(function (ev) {
-//		console.log($(ev.target).attr('id'));
-	});
 }
 // Создание разметки для действия. 
 function qspSkinGetActionHtml(action, index) {
@@ -87,30 +84,12 @@ function qspSkinGetMenuItemHtml(menuItem, index)
 }
 
 
-/* Собственные функции скина */ 
+// Собственные функции скина
+
 function skinToggleInv() {
 	$("#skin-inv-wrapper").slideToggle();
 	$("#skin-inv-toggle").toggleClass('open');
 }
-
-
-/* Функции скина для игры */
-
-// Колбэки
-
-function qspSkinOnDeviceSet() {
-	// Вызывается, когда мы узнали, на каком устройстве запущена игра
-	var more_games_link = 'http://qsp.su';
-	if (qspIsAndroid) {
-		more_games_link = 'market://search?q=pub:Butterfly+Lantern';
-	} else if (qspIsIos) {
-		more_games_link = 'itms-apps://itunes.apple.com/ru/artist/butterfly-lantern-interactive/id508671395';
-	}
-	$("#more-games-button a").attr('href', more_games_link);
-}
-
-// Свои функции
-
 
 function skinToggleMusic() {
 	skinMusic = !skinMusic;
