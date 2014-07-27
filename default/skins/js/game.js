@@ -123,7 +123,7 @@ function skinToggleMusic() {
 }
 
 function skinSetMusicButton(skinMusic) {
-	$('#qsp-user-music').toggleClass('on', skinMusic);
+	$('#skin-user-music').toggleClass('on', skinMusic);
 }
 
 function skinSetStage(cssClass) {

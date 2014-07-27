@@ -97,9 +97,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 
 #qsp-wrapper-main { height:100%; width:100%; word-wrap: break-word; }
 
-#qsp-system-menu-button { position:absolute; left:0px; top:0px; }
-#qsp-system-menu-button img { float:left; }
-
 
 .qsp-overlay { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #5c5c5c; opacity: .70;filter:Alpha(Opacity=70); -webkit-tap-highlight-color: rgba(0,0,0,0); z-index:-2; }
 
@@ -179,30 +176,30 @@ a.disabled {
 	display:none;
 }
 /* Кнопки в панели */
-#qsp-user-system,
-#qsp-user-music {
+#skin-user-system,
+#skin-user-music {
 	float:right;
 	height: 40px;
 	width: 40px;
 }
 /* Кнопка системного меню */
-body:not(.retina) #qsp-user-system {
+body:not(.retina) #skin-user-system {
 	background-image:url("gfx/button_sys-40x40.png");
 }
-body.retina #qsp-user-system {
+body.retina #skin-user-system {
 	background-image:url("gfx/button_sys-40x40@2x.png");
 }
 /* Кнопка выключения звука */
-body:not(.retina) #qsp-user-music:not(.on) {
+body:not(.retina) #skin-user-music:not(.on) {
 	background-image:url("gfx/button_sound_off-40x40.png");
 }
-body.retina #qsp-user-music:not(.on) {
+body.retina #skin-user-music:not(.on) {
 	background-image:url("gfx/button_sound_off-40x40@2x.png");
 }
-body:not(.retina) #qsp-user-music.on {
+body:not(.retina) #skin-user-music.on {
 	background-image:url("gfx/button_sound_on-40x40.png");
 }
-body.retina #qsp-user-music.on {
+body.retina #skin-user-music.on {
 	background-image:url("gfx/button_sound_on-40x40@2x.png");
 }
 #skin-user2 { 
@@ -227,8 +224,8 @@ body:not(.cover).input-visible.objs-visible #skin-user2 {
 	bottom:52px; 
 }
 /* Инвентарь выключен */
-body:not(.cover):not(.objs-visible) #qsp-user-system,
-body:not(.cover):not(.objs-visible) #qsp-user-music {
+body:not(.cover):not(.objs-visible) #skin-user-system,
+body:not(.cover):not(.objs-visible) #skin-user-music {
 	float:right;
 	margin-left: 6px;
 }
@@ -320,13 +317,15 @@ body:not(.cover):not(.objs-visible) #skin-top-menu-row {
 		position:relative;
 		width:100% !important;
 		top: auto !important;
-		padding-bottom: 23px !important;
 	}
 	body.cover #skin-left-column {
 		padding-top: 23px !important;
+		/* оставляем место для кнопок системного меню и звука */
+		padding-bottom: 69px; 
 	}
 	body:not(.cover) #skin-left-column {
 		padding-top: 0 !important;
+		padding-bottom: 23px;
 	}
 	#skin-right-column { 
 		position:relative !important;
