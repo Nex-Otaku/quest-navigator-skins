@@ -38,7 +38,7 @@ img { -webkit-user-drag: none; }
 
 a, .qsp-button, .qsp-action, .qsp-save-slot-enabled { -webkit-tap-highlight-color: rgba(0,0,0,0); cursor:pointer; }
 
-/* Кнопка на первой странице - в IE почему-то показывается рамка */
+/* Отключаем рамку у картинок в ссылках */
 .qsp-button img{ border:none; }
 
 body { margin:0;	padding:0; }
@@ -58,22 +58,6 @@ body { margin:0;	padding:0; }
 	right:0;
 }
  
-/* кастомное оформление */
-
-#skin-page { position:fixed; left:0px; top:0px; width:100%; height:100%; }
-#skin-left-column { position:absolute; left:0px; width:100%; bottom:0; }
-body.objs-visible #skin-left-column { width:70%; }
-body.cover #skin-left-column,
-body.objs-visible #skin-left-column{
-	top: 34px;
-}
-body:not(.cover):not(.objs-visible) #skin-left-column {
-	top: 52px;
-}
-body:not(.objs-visible) #skin-right-column { display: none; }
-body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; width:30%; height:100%; overflow:hidden; }
-
-
 /* стили для поддержки строки ввода */
 #qsp-input-line { 
 	position: fixed;
@@ -106,10 +90,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 /* VIEW_ALWAYS_SHOW = 0, диалог */
 #qsp-dialog-view-image-container {
     position: fixed;
-    top:9px;
-    bottom:9px;
-    left:9px;
-    right:9px;
 }
 #qsp-dialog-view-image-container img {
     max-width:100%;
@@ -120,7 +100,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
     left: 0;
     right: 0;
     bottom: 0;    
-	border: 1px solid #616161;
 }
 /* VIEW_ALWAYS_SHOW = 1, окно "встроено" в описание */
 #qsp-view {
@@ -128,7 +107,6 @@ body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; wi
 }
 #qsp-view img {
     max-width:100%;
-	margin-bottom: 10px;
 }
 
 /* MAIN DESC AND VARS DESC */
@@ -138,9 +116,42 @@ a.disabled {
 	cursor: default;
 }
 
+#skin-page { position:fixed; left:0px; top:0px; width:100%; height:100%; }
+#skin-left-column { position:absolute; left:0px; width:100%; bottom:0; }
+body:not(.objs-visible) #skin-right-column { display: none; }
+body.objs-visible #skin-right-column { position:absolute; right:0px; top:0px; height:100%; overflow:hidden; }
+
 /* ************************ */
 /* Шаблон "Простой светлый" */
 /* ************************ */
+
+/* Главные колонки */
+body.objs-visible #skin-left-column { width:70%; }
+body.objs-visible #skin-right-column { width:30%; }
+body.cover #skin-left-column,
+body.objs-visible #skin-left-column{
+	top: 34px;
+}
+body:not(.cover):not(.objs-visible) #skin-left-column {
+	top: 52px;
+}
+
+/* VIEW */
+/* VIEW_ALWAYS_SHOW = 0, диалог */
+#qsp-dialog-view-image-container {
+    top:9px;
+    bottom:9px;
+    left:9px;
+    right:9px;
+}
+#qsp-dialog-view-image-container img {
+	border: 1px solid #616161;
+}
+/* VIEW_ALWAYS_SHOW = 1, окно "встроено" в описание */
+#qsp-view img {
+	margin-bottom: 10px;
+}
+
 /* Десктопный режим */
 @media screen and (min-width: 481px){
 	/* VIEW (встроенное в текст)*/
