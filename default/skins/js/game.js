@@ -1,6 +1,7 @@
 // Переменные скина
 var skinMusic = true;
 var skinStage = "";
+var skinSplashScreenVisible = true;
 
 // Функции скина для игры
 
@@ -30,6 +31,14 @@ function qspSkinOnUpdateSkin() {
 	$(document.body).toggleClass('vars-visible', qspGameSkin.showVars == 1);
 	
 	skinSetMusicButton(skinMusic);
+}
+
+function qspSkinOnSetGroupedContent() {
+	// При первом вызове заполнения окон,
+	// гасим сплэш-скрин.
+	if (skinSplashScreenVisible) {
+		skinHideSplashScreen();
+	}
 }
 
 function qspSkinOnInitApi() {
@@ -85,6 +94,13 @@ function qspSkinGetMenuItemHtml(menuItem, index)
 
 
 // Собственные функции скина
+
+// Гасим сплэш-скрин.
+function skinHideSplashScreen() {
+	skinSplashScreenVisible = false;
+	$("#skin-ui-wrapper").show();
+	$("#skin-splashscreen-foreground").fadeOut('slow');
+}
 
 function skinToggleInv() {
 	$("#skin-inv-wrapper").slideToggle();
