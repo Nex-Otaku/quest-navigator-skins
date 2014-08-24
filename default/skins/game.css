@@ -1144,3 +1144,8 @@ body.retina .skin-button-cover
 	-o-border-image: url(gfx/button_cover-20x20@2x.png) 8 8 8 8 repeat; 
 	border-image: url(gfx/button_cover-20x20@2x.png) 8 8 8 8 fill repeat; 
 }
+
+
+#qsp-main img, #qsp-vars img { 
+	max-width: 100%;
+}
