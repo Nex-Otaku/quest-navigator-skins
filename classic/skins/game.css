@@ -36,6 +36,91 @@ a, .qsp-skin-button, .qsp-action, .qsp-save-slot-enabled { -webkit-tap-highlight
 /* Кнопка на первой странице - в IE почему-то показывается рамка */
 .qsp-skin-button img{ border:none; }
  
+ 
+ 
+/* TWEAK FOR MAIN DESC */
+#qsp-main { padding-left:12px; padding-right:12px; text-align:justify; }
+/* TWEAK FOR ACTS */
+#qsp-acts { padding-left:12px; padding-right:12px;  padding-top:30px; }
+/* TWEAK FOR DEFAULT TEXT COLOR */
+body { color:#000; background-color:#FFF; font-size:16px;}
+ 
+
+ /* Цвет фона */
+
+body 
+{
+	background-color: #E5E5E5; 
+}
+
+/* **************************** */
+/* Размер шрифта */
+
+/* Основной текст */
+body,
+#qsp-acts,
+#qsp-main,
+#qsp-vars,
+#qsp-inv,
+#skin-inv-caption,
+#qsp-dialog-user-menu,
+#qsp-dialog-input,
+#qsp-dialog-msg,
+#qsp-dialog-error
+{
+	font-size: 16px;
+}
+
+/* "Кнопки" основных диалогов */
+#skin-system-menu-container
+{
+	font-size: 18px;
+}
+
+/* Заголовки */
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+
+/* Цвет шрифта */
+
+/* Основной текст */
+body 
+{ 
+	color: #464646; 
+}
+
+/* Ссылки */
+a
+{
+	color: #1874A4;
+}
+
+/* Неактивный слот сохранения */
+.qsp-save-slot-disabled,
+/* Неактивный пункт системного меню */
+a.disabled
+{ 
+	color: #A3A3A3; 
+/*	color: #555 !important;*/
+}
+
+/* Нажатое действие */
+.pressed.qsp-action,
+/* Нажатый слот сохранения */
+.pressed.qsp-save-slot-enabled div
+ {
+	color:#BB0000; 
+}
+
+/* Подключаемые шрифты */
+/* Основной шрифт */
+body
+{
+	font-family: 'Arial';
+}
+ 
+ 
 /* кастомное оформление */
 
 #skin-page { position:fixed; left:0px; top:0px; width:100%; height:100%; }
@@ -246,7 +331,7 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 }
 
 .qsp-save-slot-enabled, .qsp-save-slot-disabled { float:left; clear:both; margin-top:14px; font-size:17px; width:100%; padding:0px; }
-.qsp-save-slot-enabled div, .qsp-save-slot-disabled div { padding-left:30px; padding-right:30px; padding-top:0px; padding-bottom:0px; margin:0px; }
+.qsp-save-slot-enabled div, .qsp-save-slot-disabled div { padding-left:20px; padding-right:20px; padding-top:0px; padding-bottom:0px; margin:0px; }
 
 .qsp-save-slot-disabled { color:#555; cursor: default; }
 
@@ -279,12 +364,6 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 	padding: 2px 10px;
 }
 
-/* TWEAK FOR MAIN DESC */
-#qsp-main { padding-left:12px; padding-right:12px; text-align:justify; }
-/* TWEAK FOR ACTS */
-#qsp-acts { padding-left:12px; padding-right:12px;  padding-top:30px; }
-/* TWEAK FOR DEFAULT TEXT COLOR */
-body { color:#FFF; background-color:#000; font-size:30px;}
 
 
 
