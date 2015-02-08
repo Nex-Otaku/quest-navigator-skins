@@ -364,6 +364,10 @@ body.retina #qsp-dialog-save-slots-wrapper1 {
 	padding: 2px 10px;
 }
 
+/* Контекстное меню */
+#qsp-dialog-user-menu-container {
+	margin: 2px 1px;
+}
 
 
 
